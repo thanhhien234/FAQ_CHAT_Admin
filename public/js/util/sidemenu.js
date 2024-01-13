@@ -3,6 +3,7 @@ const sideBar = $("aside");
 const menuList = $(".aside-menus > li");
 let activeList = $(".aside-menus > .active");
 const listRightContent = $("li > .aside-menus-item-right");
+const chatList = $(".aside-chat-lists");
 
 toggleBtn.on("click", function () {
     if (sideBar.hasClass('close')) {
@@ -19,8 +20,10 @@ toggleBtn.on("click", function () {
 menuList.on("click", function (e) {
     activeList.removeClass("active");
     switch (activeList.attr("id")) {
-        case "chatbot-menu":
+        case "answer-menu":
             $("#answer-menu img").attr("src", "/public/assets/icon/Message_white.png");
+            chatList.css("display", "none");
+            sideBar.removeClass("chat-mode");
             break;
         case "files-menu":
             $("#files-menu img").attr("src", "/public/assets/icon/file_icon.png");
@@ -28,8 +31,12 @@ menuList.on("click", function (e) {
     }
     $(e.currentTarget).addClass("active");
     switch ($(e.currentTarget).attr("id")) {
-        case "chatbot-menu":
+        case "answer-menu":
             $("#answer-menu img").attr("src", "/public/assets/icon/Message.png");
+            setTimeout(function () {
+                chatList.css("display", "block");
+            }, 500);
+            sideBar.addClass("chat-mode");
             break;
         case "files-menu":
             $("#files-menu img").attr("src", "/public/assets/icon/file_selected_icon.png");
