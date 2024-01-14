@@ -5,6 +5,7 @@ aside {
     box-sizing: border-box;
     transition: all 0.5s;
     flex: none;
+    position: relative;
 }
 
 .chat-mode {
@@ -20,6 +21,7 @@ aside {
     color: white;
     position: relative;
     display: flex;
+    overflow: hidden;
 }
 
 .aside-toggle {
@@ -126,6 +128,6 @@ aside {
 /*    display: none;*/
 /*}*/
 
-.close > .aside-container > .aside-toggle {
+.close > .aside-toggle {
     transform: rotate(180deg) translateY(50%);
 }
