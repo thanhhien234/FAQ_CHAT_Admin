@@ -1,0 +1,101 @@
+.file-menu-container {
+    width: 60px;
+    position: absolute;
+    right: 104px;
+    bottom: 76px;
+    display: none;
+    box-sizing: border-box;
+}
+
+.file-menu-inner {
+    width: 100%;
+    min-height: 209px;
+    padding: 10px 10px 55px 10px;
+    border-radius: 100px;
+    background: #E6E8EB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s;
+    opacity: 1;
+    overflow: hidden;
+}
+
+#menu-open-button {
+    position: absolute;
+    right: 109px;
+    bottom: 81px;
+    width: 50px;
+    height: 50px;
+    background: #001832;
+    border-radius: 50%;
+    border: none;
+    flex: none;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.file-menus {
+    max-height: 160px;
+    transition: all 0.5s;
+    flex: none;
+}
+
+.file-button-wrap {
+    position: relative;
+    margin-bottom: 8px;
+    transition: all 0.5s;
+}
+
+.file-button-wrap:hover {
+    margin-top: 16px;
+}
+
+.file-button-wrap:hover .file-button-label {
+    top: -12px;
+    visibility: visible;
+    opacity: 1;
+}
+
+#file-remove-button,
+#file-modify-button,
+#file-add-button {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #26405D;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #E6E8EB;
+    z-index: 10;
+}
+
+.file-button-label {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 8px;
+    color: #26405D;
+    font-weight: 300;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s;
+    z-index: 1;
+}
+
+.file-menu-inner.close {
+    min-height: 0;
+    width: 50px;
+    padding: 0;
+    margin: 5px 5px 20px 5px;
+}
+
+.file-menu-inner.close .file-menus {
+    max-height: 0;
+    min-height: 0;
+}
