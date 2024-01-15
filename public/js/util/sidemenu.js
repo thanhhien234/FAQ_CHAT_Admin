@@ -4,6 +4,8 @@ const menuList = $(".aside-menus > li");
 let activeList = $(".aside-menus > .active");
 const listRightContent = $("li > .aside-menus-item-right");
 const chatList = $(".aside-chat-lists");
+const fileMenus = $(".file-menu-container");
+const fileMenuBtn = $("#menu-open-button");
 
 toggleBtn.on("click", function () {
     if (sideBar.hasClass('close')) {
@@ -27,6 +29,8 @@ menuList.on("click", function (e) {
             break;
         case "files-menu":
             $("#files-menu img").attr("src", "/public/assets/icon/file_icon.png");
+            fileMenus.hide();
+            fileMenuBtn.hide();
             break;
     }
     $(e.currentTarget).addClass("active");
@@ -40,6 +44,8 @@ menuList.on("click", function (e) {
             break;
         case "files-menu":
             $("#files-menu img").attr("src", "/public/assets/icon/file_selected_icon.png");
+            fileMenus.show();
+            fileMenuBtn.css("display", "flex");
             break;
     }
     activeList = $(".aside-menus > .active");
