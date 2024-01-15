@@ -6,6 +6,8 @@ const listRightContent = $("li > .aside-menus-item-right");
 const chatList = $(".aside-chat-lists");
 const fileMenus = $(".file-menu-container");
 const fileMenuBtn = $("#menu-open-button");
+const instructorContainer = $(".main-section");
+const fileContainer = $(".file-section");
 
 toggleBtn.on("click", function () {
     if (sideBar.hasClass('close')) {
@@ -41,12 +43,17 @@ menuList.on("click", function (e) {
                 chatList.css("display", "block");
             }, 500);
             sideBar.addClass("chat-mode");
+            instructorContainer.show();
+            fileContainer.hide();
             break;
         case "files-menu":
             $("#files-menu img").attr("src", "/public/assets/icon/file_selected_icon.png");
             fileMenus.show();
             fileMenuBtn.css("display", "flex");
+            instructorContainer.hide();
+            fileContainer.show();
             break;
     }
     activeList = $(".aside-menus > .active");
 })
+$("#answer-menu").trigger("click"); //initially
