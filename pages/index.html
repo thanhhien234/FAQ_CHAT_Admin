@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="/public/css/sidemenu.css">
     <link rel="stylesheet" href="/public/css/chatlist.css">
     <link rel="stylesheet" href="/public/css/filemenu.css">
+    <link rel="stylesheet" href="/public/css/index.css">
+    <link rel="stylesheet" href="/public/css/file.css">
   </head>
-  <body>
-
+<body>
+  <div class="main-container"> 
     <aside class="chat-mode">
       <button class="aside-toggle">
         <img src="/public/assets/icon/arrow.png" alt="">
@@ -84,8 +86,61 @@
         </ul>
       </div>
     </aside>
-    <div class="main-content">
-      <!--   나중에 여기에 내용 들어갑니다.   -->
+    <div class="main-section"> <!--   히엔 here   -->
+      <div class="student-container">  <!-- student's name -->
+        <div class="name">나학생 (2022123455)</div>
+      </div>
+      <div class="main-content">  <!--instructor q&a-->
+        <div class="instructor-message-container">
+          <div class="date">2024년 1월 7일 일요일</div>
+          <div class="question-container">
+            <div class="question">000교수님 안녕하세요, 컴퓨터학부 000입니다.</div>
+          </div>
+          <div class="question-container">
+            <div class="question">파이썬 과목의 시험 날짜가 아직 등록 되지 않았다고 하여 메세지 드립니다. 혹시 시험 날짜를 알 수 있을까요?</div>
+          </div>
+          <div class="question-time-container"><div class="time">오전 10:37</div></div>
+          <div class="date">2024년 1월 8일 월요일</div>
+          <div class="answer-container">
+            <div class="answer">네, 파이썬 과목은 중간고사를 0월 0일로 예상하고 있고, 기말고사는 아직 확정된 날짜가 없습니다.</div>
+          </div>
+          <div class="answer-container">
+            <div class="answer">또 질문할 것이 있다면 연락 바랍니다.</div>
+          </div>
+          <div class="answer-time-container"><div class="time">오후 1:03</div></div>
+          <div class="question-container">
+            <div class="question">감사합니다!</div>
+          </div>
+          <div class="question-time-container"><div class="time">오후 3:30</div></div>
+        </div>
+
+        <div class="input-chat-container"> <!--   input message   -->
+          <div class="input-chat-inner">
+            <textarea id="messageInput" placeholder="질문을 입력해주세요."></textarea>
+            <button type="submit" id="submit">
+              <img src="/public/assets/icon/arrow_circle_up.png" class="up-arrow">
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="file-section">
+      <div class="file-container">  <!-- file storage-->
+        <table id="fileTable">
+          <thead>
+              <tr>
+                  <th><img src="/public/assets/icon/uncheckBox.png"></th>
+                  <th>순서</th>
+                  <th>제목</th>
+                  <th>게시일</th>
+              </tr>
+          </thead>
+          <tbody>
+              <!-- file row -->
+          </tbody>
+        </table>
+      </div>
     </div>
     <div class="file-menu-container">
       <div class="file-menu-inner close">
@@ -114,7 +169,7 @@
     <button id="menu-open-button">
       <img src="../public/assets/icon/option_icon.png" alt="">
     </button>
-
+  </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
@@ -131,5 +186,8 @@
     <script src="/public/js/util/cookieManage.js"></script>
     <script src="/public/js/util/sidemenu.js"></script>
     <script src="/public/js/util/filemenu.js"></script>
+    <script src="/public/js/util/chatting.js"></script>
+    <script src="/public/js/util/file.js"></script>
+    <script src="/public/js/api/file/fileListSearch.js"></script>
   </body>
 </html>
