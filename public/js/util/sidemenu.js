@@ -9,6 +9,10 @@ const fileMenuBtn = $("#menu-open-button");
 const instructorContainer = $(".main-section");
 const fileContainer = $(".file-section");
 
+// Mobile Menus
+const mobileMenuList = $(".mobile-menus > li");
+let mobileActiveList = $(".mobile-menus > .active");
+
 toggleBtn.on("click", function () {
     if (sideBar.hasClass('close')) {
         sideBar.removeClass('close');
@@ -56,4 +60,29 @@ menuList.on("click", function (e) {
     }
     activeList = $(".aside-menus > .active");
 })
+
+mobileMenuList.on("click", function (e) {
+    mobileActiveList.removeClass("active");
+    switch (activeList.attr("id")) {
+        case "mobile-answer-menu":
+            $("#mobile-answer-menu img").attr("src", "../public/assets/icon/Message_white.png");
+            break;
+        case "mobile-files-menu":
+            $("#mobile-files-menu img").attr("src", "../public/assets/icon/file_icon.png");
+            break;
+    }
+    $(e.currentTarget).addClass("active");
+    switch ($(e.currentTarget).attr("id")) {
+        case "mobile-answer-menu":
+            $("#mobile-answer-menu img").attr("src", "../public/assets/icon/Message.png");
+            $("#answer-menu").click();
+            break;
+        case "mobile-files-menu":
+            $("#mobile-files-menu img").attr("src", "../public/assets/icon/file_selected_icon.png");
+            $("#files-menu").click();
+            break;
+    }
+    mobileActiveList = $(".mobile-menus > .active");
+})
+
 $("#answer-menu").trigger("click"); //initially

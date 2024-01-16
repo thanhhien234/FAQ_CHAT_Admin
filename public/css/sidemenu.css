@@ -131,3 +131,9 @@ aside {
 .close > .aside-toggle {
     transform: rotate(180deg) translateY(50%);
 }
+
+@media screen and (max-width: 900px) {
+    aside {
+        display: none;
+    }
+}

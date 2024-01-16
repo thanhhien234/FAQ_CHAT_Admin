@@ -1,0 +1,77 @@
+.mobile-menu-container {
+    width: 100%;
+    position: fixed;
+    top: 8px;
+    left: 0;
+    text-align: center;
+    z-index: 100;
+    display: none;
+}
+
+.mobile-menu-inner {
+    width: 90%;
+    max-width: 300px;
+    margin: auto;
+}
+
+.mobile-menus {
+    width: 100%;
+    list-style: none;
+    padding: 4px;
+    overflow-x: scroll;
+    background: #001832;
+    border-radius: 40px;
+    display: flex;
+}
+
+.mobile-menus::-webkit-scrollbar {
+    display: none;
+}
+
+.mobile-menus li {
+    flex: none;
+    color: #9399A0;
+    font-size: 12px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    border: 1px solid #9399A0;
+    border-radius: 20px;
+    padding: 4px 8px 4px 4px;
+    margin-right: 4px;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    cursor: pointer;
+}
+
+.mobile-menus li.active {
+    background: rgba(250, 200, 204, 0.65);
+    color: white;
+}
+
+.mobile-menus li:last-child {
+    margin-right: 0;
+}
+
+.mobile-menus li .mobile-menu-img-container {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #26405D;
+    margin-right: 3px;
+}
+
+.mobile-menus li.active .mobile-menu-img-container {
+    background: #FAC8CC;
+}
+
+@media screen and (max-width: 900px) {
+    .mobile-menu-container {
+        display: block;
+    }
+}

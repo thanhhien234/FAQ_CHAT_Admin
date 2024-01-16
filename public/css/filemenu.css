@@ -99,3 +99,15 @@
     max-height: 0;
     min-height: 0;
 }
+
+@media screen and (max-width: 900px) {
+    .file-menu-container {
+        right: 50px;
+        bottom: 50px;
+    }
+
+    #menu-open-button {
+        right: 55px;
+        bottom: 55px;
+    }
+}
