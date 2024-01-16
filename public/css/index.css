@@ -27,21 +27,21 @@ html, body {
     flex-direction: column;
     overflow: hidden;
     background-color: #fff;
-    box-shadow: 0px 4px 8px -5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     margin: 0 auto;
 }
 /* student-container */
 .student-container {
-    background: #f0f0f0;
+    background: linear-gradient(#FFFFFF, 40%, #E6E8EB);
     text-align: center;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     margin: 0 auto 0 auto;
     padding: 10px;
     width: 100%;
-    box-shadow: 0px -5px 8px -5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 .name{
     font-size: 14px;
