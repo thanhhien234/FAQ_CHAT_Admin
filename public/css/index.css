@@ -35,10 +35,14 @@ html, body {
     margin: 0 auto 0 auto;
     padding: 10px;
     width: 100%;
+    display: block;
+}
+.mobile-student-container{
+  display: none;
 }
 .name{
     font-size: 14px;
-    color: #000;
+    color: #001832;
 }
 
 /* input-chat-container */
@@ -164,3 +168,74 @@ html, body {
     margin-bottom: 10px;
   }
 
+/* mobile screen*/
+@media screen and (max-width: 900px) {
+  .main-container{
+    background-color: #001832;
+    padding-top: 15%;
+  }
+  .main-section {
+      padding: 0;
+      height: 100%;
+  }
+
+  .main-content {
+      box-shadow: none;
+      border-radius: 0;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+  }
+  .input-chat-container{
+    margin-bottom: 30px;
+  }
+  .input-chat-inner{
+    height: 40px;
+    border-radius: 16px;
+    padding: 2px;
+    width: 90%;
+  }
+  .input-chat-inner input[type="text"],
+  .input-chat-inner textarea {
+    margin-left: 5px;
+  }
+  #submit {
+    margin-right: 0;
+  }
+  .instructor-message-container {
+    width: 90%;
+  }
+  .question-container,
+  .answer-container {
+      max-width: 75%;
+  }
+  .date {
+    margin-top: 20px;
+  }
+  .answer-time-container,
+  .question-time-container{
+    display: none;
+  }
+  /*student name container */
+  .student-container{
+    display: none;
+  }
+  .mobile-student-container{
+    display: block;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #E6E8EB;
+    margin: 25px;
+    border-radius: 20px;
+    padding: 5px;
+  }
+  .back-arrow {
+    background-color: transparent;
+  }
+  .back-arrow img {
+    width: 22px;
+    height: auto; 
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
