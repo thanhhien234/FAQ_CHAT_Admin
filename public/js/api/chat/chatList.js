@@ -62,6 +62,9 @@ async function searchChatList(page, pageSize) {
                       </li>
                 `)
             })
+        },
+        error: function (err) {
+            console.error(err);
         }
     })
 }
