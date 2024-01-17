@@ -4,6 +4,7 @@
     list-style: none;
     padding: 25px;
     flex: none;
+    overflow-y: scroll;
 }
 
 .aside-chat-lists > li {
@@ -12,6 +13,7 @@
     border-radius: 20px;
     height: 120px;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 
 .aside-chat-lists > li .list-inner {
@@ -69,6 +71,7 @@
 
 .aside-chat-lists > li .content {
     color: white;
+    height: 36px;
     font-size: 12px;
     font-weight: 400;
     overflow: hidden;

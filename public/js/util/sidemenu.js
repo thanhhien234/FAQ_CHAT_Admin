@@ -13,6 +13,9 @@ const fileContainer = $(".file-section");
 const mobileMenuList = $(".mobile-menus > li");
 let mobileActiveList = $(".mobile-menus > .active");
 
+// Initialize
+searchChatList(0, 20);
+
 toggleBtn.on("click", function () {
     if (sideBar.hasClass('close')) {
         sideBar.removeClass('close');
@@ -47,6 +50,7 @@ menuList.on("click", function (e) {
                 chatList.css("display", "block");
             }, 500);
             sideBar.addClass("chat-mode");
+            searchChatList(0, 20);
             instructorContainer.show();
             fileContainer.hide();
             break;
