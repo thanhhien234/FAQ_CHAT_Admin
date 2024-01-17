@@ -64,7 +64,7 @@ html, body {
     border: 2px solid #87A7CB;
     height: 50px;
     border-radius: 20px;
-    padding: 8px;
+    padding: 5px;
     width: 85%;
   }
   
@@ -99,7 +99,8 @@ html, body {
     background-color: #fff;
     width: 85%;
     margin: 0 auto;
-    flex-direction: column; 
+    flex-direction: column;
+    margin-bottom: 10px;
   }
   
   .instructor-message-container::-webkit-scrollbar {
