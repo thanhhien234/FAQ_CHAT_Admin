@@ -76,13 +76,16 @@ mobileMenuList.on("click", function (e) {
         case "mobile-answer-menu":
             $("#mobile-answer-menu img").attr("src", "../public/assets/icon/Message.png");
             $("#answer-menu").click();
+            $(".main-container").css("background-color", "#001832");
             break;
         case "mobile-files-menu":
             $("#mobile-files-menu img").attr("src", "../public/assets/icon/file_selected_icon.png");
             $("#files-menu").click();
+            $(".main-container").css("background-color", "#fff");
             break;
     }
     mobileActiveList = $(".mobile-menus > .active");
+
 })
 
 $("#answer-menu").trigger("click"); //initially
