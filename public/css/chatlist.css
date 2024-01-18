@@ -7,6 +7,10 @@
     overflow-y: scroll;
 }
 
+.aside-chat-lists::-webkit-scrollbar {
+    display: none;
+}
+
 .aside-chat-lists > li {
     border: 1px solid rgba(230, 232, 235, 0.65);
     /* #E6E8EB */
