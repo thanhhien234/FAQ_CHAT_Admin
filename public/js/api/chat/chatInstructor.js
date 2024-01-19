@@ -1,5 +1,5 @@
 async function searchChat(studentId) {
-    const response = await $.ajax({
+    await $.ajax({
         url: config.chatServer + `/api/prof?studentId=${studentId}`,
         type: 'GET',
         headers: {
