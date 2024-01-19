@@ -43,7 +43,7 @@ async function searchChatList(page, pageSize) {
                 }
 
                 listContainer.append(`
-                    <li ${isToday ? "class='today'" : "" }>
+                    <li ${isToday ? "class='today'" : "" } data-name ="${chat.name}" data-studentid="${chat.student_id}">
                         <div class="list-inner">
                           <div class="header">
                             <span class="chat-time">${date}</span>
