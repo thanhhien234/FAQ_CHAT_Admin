@@ -1,3 +1,4 @@
+// 교수가 학생의 질문 조회
 async function searchChat(studentId) {
     await $.ajax({
         url: config.chatServer + `/api/prof?studentId=${studentId}`,
@@ -7,6 +8,7 @@ async function searchChat(studentId) {
         },
         success: function (res) {
             const container = $('.instructor-message-container');
+            container.empty()
             let lastDate = null;
             let latestQuestionTime = null;
             let latestAnswerTime = null;
@@ -73,6 +75,7 @@ async function searchChat(studentId) {
                 const lastAnswerTimeElement = $('<div>').addClass('time').text(latestAnswerTime);
                 container.append(lastAnswerTimeContainer.append(lastAnswerTimeElement));
             }
+            container.scrollTop(container[0].scrollHeight); //scroll to bottom
         },
         error: function (err) {
             console.error(err);

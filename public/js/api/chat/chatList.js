@@ -1,3 +1,4 @@
+// 학생 질문 리스트 조회
 async function searchChatList(page, pageSize) {
     await $.ajax({
         url: config.chatServer + `/api/prof/list?page=${page}&pageSize=${pageSize}`,
