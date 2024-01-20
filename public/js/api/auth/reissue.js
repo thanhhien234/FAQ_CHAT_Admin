@@ -10,6 +10,8 @@ async function reissue() {
             setCookie("refreshToken", res.refreshToken, 24 * 14 * 60);
             if (res.registerStateEnum === "INACTIVE") {
                 location.replace("/register");
+            } else {
+                location.reload();
             }
         },
         error: function (err) {
