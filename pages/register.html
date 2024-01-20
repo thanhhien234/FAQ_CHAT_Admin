@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>회원정보 입력</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous">
+  <link rel="stylesheet" href="/public/css/font.css">
+  <link rel="stylesheet" href="/public/css/register.css">
+</head>
+<body>
+  <div class="main-container">
+    <div class="form-container">
+      <div class="form-inner">
+        <h3 class="title">회원정보 입력</h3>
+        <form>
+          <div class="name-box">
+            <label for="name-input">이름</label>
+            <input id="name-input" type="text" placeholder="나학생">
+            <img class="input-check" src="/public/assets/icon/Check_active.png" alt="">
+          </div>
+          <div class="student-num-box">
+            <label for="student-num-input">학번</label>
+            <input id="student-num-input" type="text" placeholder="2022123456">
+            <img class="input-check" src="/public/assets/icon/Check_active.png" alt="">
+          </div>
+          <div class="email-box">
+            <label for="email-input">학교 이메일</label>
+            <input id="email-input" type="email" placeholder="example@stu.kmu.ac.kr">
+            <img class="input-check" src="/public/assets/icon/Check_active.png" alt="">
+          </div>
+          <div class="code-box">
+            <label for="code-input">인증번호</label>
+            <div class="code-input-box">
+              <input id="code-input" type="text" placeholder="인증번호 6자리" maxlength="6">
+              <span class="time-remain"></span>
+            </div>
+            <button id="send-code-btn">인증번호 보내기</button>
+            <p class="code-description">위의 학교 이메일로 인증번호가 발송됩니다.</p>
+          </div>
+          <div class="agree-box">
+            <input id="agree-check" type="checkbox">
+            <label for="agree-check">
+              <img src="/public/assets/icon/Check.png" alt="">
+              모든 내용을 확인하였으며, 개인정보 수집에 동의합니다.
+            </label>
+          </div>
+          <button id="submit-btn" type="submit">가입</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+          integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+          integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+          crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+          crossorigin="anonymous"></script>
+  <script src="/public/js/config.js"></script>
+  <script src="/public/js/util/cookieManage.js"></script>
+  <script src="/public/js/api/auth/sendEmailVeriCode.js"></script>
+  <script src="/public/js/api/auth/verifyCode.js"></script>
+  <script src="/public/js/util/register.js"></script>
+</body>
+</html>
