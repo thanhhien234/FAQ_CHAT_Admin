@@ -120,6 +120,7 @@ html, body {
       max-width: 60%;
       margin-top: auto;
       width: fit-content;
+      word-wrap: break-word;
   }
   .answer-container{
       margin-left: auto;

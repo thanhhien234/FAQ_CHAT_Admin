@@ -52,6 +52,7 @@ menuList.on("click", function (e) {
             sideBar.addClass("chat-mode");
             searchChatList(0, 20);
             instructorContainer.show();
+            instructorContainer.scrollTop(instructorContainer[0].scrollHeight); //scroll to bottom
             fileContainer.hide();
             break;
         case "files-menu":
