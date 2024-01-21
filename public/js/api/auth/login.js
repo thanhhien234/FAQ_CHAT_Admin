@@ -16,6 +16,7 @@ if (!!loginCode) {
         },
         error: function (err) {
             alert("관리자에게 문의해주세요.");
+            location.replace("/login.html");
         }
     })
 } else {

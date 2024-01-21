@@ -15,7 +15,9 @@ async function reissue() {
             }
         },
         error: function (err) {
-            console.error(err);
+            deleteCookie("accessToken");
+            deleteCookie("refreshToken");
+            location.href = "/login.html";
         }
     })
 }
