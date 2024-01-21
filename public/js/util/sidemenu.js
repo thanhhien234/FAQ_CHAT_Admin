@@ -13,6 +13,9 @@ const fileContainer = $(".file-section");
 const mobileMenuList = $(".mobile-menus > li");
 let mobileActiveList = $(".mobile-menus > .active");
 
+// Initialize
+searchChatList(0, 20);
+
 toggleBtn.on("click", function () {
     if (sideBar.hasClass('close')) {
         sideBar.removeClass('close');
@@ -47,7 +50,9 @@ menuList.on("click", function (e) {
                 chatList.css("display", "block");
             }, 500);
             sideBar.addClass("chat-mode");
+            searchChatList(0, 20);
             instructorContainer.show();
+            instructorContainer.scrollTop(instructorContainer[0].scrollHeight); //scroll to bottom
             fileContainer.hide();
             break;
         case "files-menu":
@@ -76,13 +81,16 @@ mobileMenuList.on("click", function (e) {
         case "mobile-answer-menu":
             $("#mobile-answer-menu img").attr("src", "../public/assets/icon/Message.png");
             $("#answer-menu").click();
+            $(".main-container").css("background-color", "#001832");
             break;
         case "mobile-files-menu":
             $("#mobile-files-menu img").attr("src", "../public/assets/icon/file_selected_icon.png");
             $("#files-menu").click();
+            $(".main-container").css("background-color", "#fff");
             break;
     }
     mobileActiveList = $(".mobile-menus > .active");
+
 })
 
 $("#answer-menu").trigger("click"); //initially
