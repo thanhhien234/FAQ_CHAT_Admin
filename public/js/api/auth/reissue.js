@@ -9,7 +9,7 @@ async function reissue() {
             setCookie("accessToken", res.accessToken, 2 * 60);
             setCookie("refreshToken", res.refreshToken, 24 * 14 * 60);
             if (res.registerStateEnum === "INACTIVE") {
-                location.replace("/register");
+                location.replace("/register.html");
             } else {
                 location.reload();
             }

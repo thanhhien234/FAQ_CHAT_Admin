@@ -4,13 +4,13 @@ const refreshTime = 24 * 60 * 7;
 
 if (!!loginCode) {
     $.ajax({
-        url: config.authServer + 'api/auth/login?code=' + loginCode,
+        url: config.authServer + '/api/auth/login?code=' + loginCode,
         type: "GET",
         success: function (res) {
             setCookie('AccessToken', res.accessToken, accessTime);
             setCookie('RefreshToken', res.refreshToken, refreshTime);
             if (res.registerStateEnum === "INACTIVE")
-                window.location.href = '/register';
+                window.location.href = '/register.html';
             else
                 window.location.href = '/';
         },
