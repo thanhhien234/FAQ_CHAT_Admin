@@ -4,7 +4,7 @@ const refreshTime = 24 * 60 * 7;
 
 if (!!loginCode) {
     $.ajax({
-        url: config.authServer + '/api/auth/login?code=' + loginCode,
+        url: config.authServer + '/api/auth/login-admin?code=' + loginCode,
         type: "GET",
         success: function (res) {
             setCookie('accessToken', res.accessToken, accessTime);
