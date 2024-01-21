@@ -1,8 +1,5 @@
-@font-face {
-    font-family: 'Noto-Sans';
-    src: url('/public/assets/font/NotoSansKR.ttf');
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 
 * {
-    font-family: Noto-Sans, sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
 }
