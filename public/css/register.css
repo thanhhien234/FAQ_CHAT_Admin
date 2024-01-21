@@ -1,0 +1,152 @@
+html {
+    background: black;
+}
+
+.main-container {
+    width: 100%;
+    height: 100dvh;
+    background: black;
+    padding: 20px;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    border-radius: 20px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.form-inner {
+    width: 100%;
+    max-width: 340px;
+    height: 100%;
+    max-height: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-inner .title {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+.form-inner form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-inner form div {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.form-inner form label {
+    display: block;
+    text-align: left;
+    color: #9399A0;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.form-inner form input {
+    border: none;
+    border-bottom: solid 1px #9399A0;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    outline: none;
+}
+
+.form-inner form .input-check {
+    position: absolute;
+    right: 0;
+}
+
+.code-box {
+    text-align: left;
+}
+
+.code-box .code-input-box {
+    width: 50%;
+    display: inline-block;
+}
+
+.code-box .time-remain {
+    position: absolute;
+    right: 0;
+    color: #034EA2;
+    font-size: 10px;
+    font-weight: 400;
+    display: none;
+}
+
+.code-box .code-description {
+    color: #034EA2;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: left;
+    display: none;
+}
+
+#send-code-btn {
+    background: #E6E8EB;
+    color: #001832;
+    font-size: 12px;
+    font-weight: 400;
+    border-radius: 30px;
+    border: none;
+    padding: 4px 8px;
+    margin-left: 10px;
+}
+
+#send-code-btn.active {
+    background: #034EA2;
+    color: white;
+}
+
+.agree-box {
+    margin-top: 24px;
+    margin-bottom: auto !important;
+    display: flex;
+}
+
+.agree-box #agree-check {
+    display: none;
+}
+
+.agree-box * {
+    flex: none;
+}
+
+.agree-box label.checked {
+    color: #001832;
+}
+
+.agree-box p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #9399A0;
+}
+
+#submit-btn {
+    background: #034EA2;
+    color: white;
+    padding: 12px;
+    font-weight: 400;
+    border: none;
+    border-radius: 30px;
+}
+
+.input-check {
+    display: none;
+}
