@@ -177,7 +177,6 @@ html, body {
 /* mobile screen*/
 @media screen and (max-width: 900px) {
   .main-container{
-      background-color: #001832;
       padding-top: 80px;
   }
   .main-section {
