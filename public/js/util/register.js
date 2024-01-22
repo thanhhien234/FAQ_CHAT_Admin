@@ -8,6 +8,7 @@ const agreeCheck = $("#agree-check");
 const agreeCheckLabel = $(".agree-box label");
 const checkImg = $(".agree-box label img");
 const submitBtn = $("#submit-btn");
+const sendLoading = $("#send-code-btn .spinner-border");
 
 let nameState = false;
 let studentNumState = false;
@@ -73,8 +74,10 @@ codeInput.on("change", function () {
 sendBtn.click(function (e) {
     e.preventDefault();
     if (emailState) {
+        sendLoading.css("display", "inline-block");
         sendVerificationCode(emailInput.val())
             .then(() => {
+                sendLoading.css("display", "none");
                 timeRemain.show();
                 $(".code-box .code-description").show();
                 leftTime = 10 * 60 * 1000;
@@ -90,6 +93,10 @@ sendBtn.click(function (e) {
                         leftTime -= 1000;
                     }
                 }, 1000);
+            })
+            .catch(() => {
+                alert("이메일 전송을 실패했습니다.");
+                sendLoading.css("display", "none");
             });
     } else {
         alert("학교 이메일을 입력해주세요.");

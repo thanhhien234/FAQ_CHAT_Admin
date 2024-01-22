@@ -124,10 +124,6 @@ html {
     display: none;
 }
 
-.agree-box * {
-    flex: none;
-}
-
 .agree-box label.checked {
     color: #001832;
 }
@@ -149,4 +145,21 @@ html {
 
 .input-check {
     display: none;
+}
+
+@media screen and (max-width: 900px) {
+    html {
+        background: none;
+    }
+
+    .main-container {
+        background: none;
+        padding: 0;
+    }
+
+    .form-container {
+        padding: 20px;
+        width: 100%;
+        max-width: none;
+    }
 }
