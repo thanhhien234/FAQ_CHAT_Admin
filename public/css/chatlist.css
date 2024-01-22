@@ -85,3 +85,94 @@
     -webkit-box-orient: vertical;
     margin-bottom: 0;
 }
+
+.mobile-chat-list-container {
+    width: 100%;
+    background: white;
+    border-radius: 20px 20px 0 0 ;
+    overflow-y: scroll;
+    display: none;
+}
+
+.mobile-chat-list-container::-webkit-scrollbar {
+    display: none;
+}
+
+.mobile-chat-list {
+    width: 100%;
+    list-style: none;
+    padding: 20px;
+}
+
+.mobile-chat-list li {
+    border: 1px solid rgba(230, 232, 235, 0.65);
+    margin-bottom: 2px;
+    border-radius: 20px;
+
+}
+
+.mobile-chat-list li .list-inner {
+    padding: 20px;
+}
+
+.mobile-chat-list li .header {
+    display: flex;
+    align-items: center;
+}
+
+.mobile-chat-list li .user {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: auto;
+}
+
+.mobile-chat-list li .chat-time {
+    font-size: 8px;
+    margin-right: 4px;
+}
+
+.mobile-chat-list li .content {
+    height: 36px;
+    font-size: 12px;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-bottom: 0;
+}
+
+.mobile-chat-list > li .badge {
+    font-size: 8px;
+    font-weight: 300;
+    padding: 5px 10px;
+}
+
+.mobile-chat-list > li .unread {
+    background: #A512FF;
+    color: white;
+    border-radius: 20px;
+}
+
+.mobile-chat-list > li .no-reply {
+    background: #1FFB28;
+    color: black;
+    border-radius: 20px;
+}
+
+.mobile-chat-list > li.today {
+    border: 1px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(to bottom, #A512FF, #7565B2, #1FFB28);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+@media screen and (max-width: 900px) {
+    .mobile-chat-list-container {
+        display: block;
+        z-index: 10;
+        position: absolute;
+    }
+}

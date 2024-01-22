@@ -30,6 +30,7 @@ html, body {
     border-radius: 20px;
     margin: 0 auto;
     width: 80%;
+    z-index: 20;
 }
 /* student-container */
 .student-container {
@@ -176,8 +177,8 @@ html, body {
 /* mobile screen*/
 @media screen and (max-width: 900px) {
   .main-container{
-    background-color: #001832;
-    padding-top: 15%;
+      background-color: #001832;
+      padding-top: 80px;
   }
   .main-section {
       padding: 0;
@@ -236,12 +237,12 @@ html, body {
     padding: 5px;
   }
   .back-arrow {
-    background-color: transparent;
+      background-color: white;
+      border: none;
+      padding: 5px 10px;
   }
   .back-arrow img {
     width: 22px;
-    height: auto; 
-    margin-right: 10px;
-    margin-left: 10px;
+    height: auto;
   }
 }
