@@ -7,6 +7,7 @@ async function deleteFile(fileIdList) {
         },       
         success: function(response) {
             console.log('Delete File success');
+            fileListSearch(currentPage, pageSize);
         },
         error: function(err) {
             console.error(err);

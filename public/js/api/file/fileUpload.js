@@ -14,6 +14,7 @@ async function uploadFile(file, fileName) {
 
         success: function (response) {
             console.log('File Upload Success:', response);
+            fileListSearch(currentPage, pageSize);
         },
         error: function (err) {
             console.error('File Upload Error:', err);

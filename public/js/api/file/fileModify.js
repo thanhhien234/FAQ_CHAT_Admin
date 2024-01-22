@@ -7,6 +7,7 @@ async function modifyFile(fileId, name) {
         },
         success: function(response) {
             console.log('Modify File success');
+            fileListSearch(currentPage, pageSize);
         },
         error: function(err) {
             console.error(err);

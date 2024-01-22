@@ -9,7 +9,7 @@ async function fileListSearch(page, pageSize) {
             Authorization: "Bearer " + getCookie("accessToken")
         },
         success: function (res) {
-            console.log(res);
+            console.log(res)
             const totalPages = res.fileCount / pageSize;
             /* large screen */
             $("#fileTable tbody").empty();
@@ -24,7 +24,7 @@ async function fileListSearch(page, pageSize) {
                 $("#fileTable tbody").append(`
                     <tr>
                         <td>
-                            <input type="checkbox" id="${file.id}">
+                            <input type="checkbox" onclick="handleCheckbox(this, '${file.name}')" id="${file.id}">
                             <label for="${file.id}"></label>
                         </td>
                         <td>${index + 1 + pageSize * currentPage}</td>
@@ -47,7 +47,7 @@ async function fileListSearch(page, pageSize) {
                 $("#mobile-fileTable tbody").append(`
                     <tr>
                         <td>
-                            <input type="checkbox" id="${file.id}">
+                            <input type="checkbox" onclick="handleCheckbox(this, '${file.name}')" id="${file.id}">
                             <label for="${file.id}"></label>
                         </td>
                         <td>${index + 1 + pageSize * currentPage}</td>
