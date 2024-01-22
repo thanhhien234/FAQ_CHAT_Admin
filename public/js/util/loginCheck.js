@@ -5,3 +5,5 @@ async function loginCheck() {
         await reissue();
     }
 }
+
+loginCheck();
