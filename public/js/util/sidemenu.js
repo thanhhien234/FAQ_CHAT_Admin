@@ -12,6 +12,7 @@ const fileContainer = $(".file-section");
 // Mobile Menus
 const mobileMenuList = $(".mobile-menus > li");
 let mobileActiveList = $(".mobile-menus > .active");
+const mobileFileBtnContainer = $(".mobile-file-button-container");
 
 // Initialize
 searchChatList(0, 20);
@@ -38,8 +39,9 @@ menuList.on("click", function (e) {
             break;
         case "files-menu":
             $("#files-menu img").attr("src", "/public/assets/icon/file_icon.png");
-            fileMenus.hide();
-            fileMenuBtn.hide();
+            fileMenus.addClass("hide");
+            fileMenuBtn.addClass("hide");
+            mobileFileBtnContainer.addClass("hide");
             break;
     }
     $(e.currentTarget).addClass("active");
@@ -57,8 +59,9 @@ menuList.on("click", function (e) {
             break;
         case "files-menu":
             $("#files-menu img").attr("src", "/public/assets/icon/file_selected_icon.png");
-            fileMenus.show();
-            fileMenuBtn.css("display", "flex");
+            fileMenus.removeClass("hide");
+            fileMenuBtn.removeClass("hide");
+            mobileFileBtnContainer.removeClass("hide");
             instructorContainer.hide();
             fileContainer.show();
             break;
@@ -81,12 +84,10 @@ mobileMenuList.on("click", function (e) {
         case "mobile-answer-menu":
             $("#mobile-answer-menu img").attr("src", "../public/assets/icon/Message.png");
             $("#answer-menu").click();
-            $(".main-container").css("background-color", "#001832");
             break;
         case "mobile-files-menu":
             $("#mobile-files-menu img").attr("src", "../public/assets/icon/file_selected_icon.png");
             $("#files-menu").click();
-            $(".main-container").css("background-color", "#fff");
             break;
     }
     mobileActiveList = $(".mobile-menus > .active");
