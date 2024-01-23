@@ -42,15 +42,23 @@ $(document).on('click', '#file-remove-button', function() {
 $(document).on('click', '#file-modify-button', function() {
     if (checkedFileIds.length === 1) {
         const selectedFile = checkedFileIds[0];
-        $('#newFileNameInput').attr('placeholder', firstFilename);
+        $('#newFileNameInput').val(firstFilename);
+        $('#newFileNameInput').css('color', '#929FAD');
         $('#modifyFileModal').modal('show');
     } else {
         alert("파일을 하나만 선택해주세요.");
     }
 });
+$(document).on('click', '#newFileNameInput', function() {
+    $(this).css('color', '#001832');
+});
 $(document).on('click', '#saveChangesBtn', function() {
     const newFileName = $('#newFileNameInput').val();
     modifyFile(checkedFileIds[0], newFileName);
+    $('#modifyFileModal').modal('hide');
+    checkedFileIds = [];
+});
+$(document).on('click', '#cancelBtn', function() {
     $('#modifyFileModal').modal('hide');
 });
 

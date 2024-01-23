@@ -248,6 +248,9 @@ html, body {
 
 
 /* new fileName input */
+#modifyFileModal {
+  background-color: rgba(38, 64, 93, 0.2);
+}
 .modal-dialog .modal-dialog-centered{
   border-radius: 20px;
 }
@@ -260,8 +263,6 @@ html, body {
   font-size: 14px;
   color: #001832;
   text-align: left;
-  font-weight: bolder;
-
 }
 
 #modifyFileForm input[type="text"] {
@@ -293,7 +294,7 @@ html, body {
 
 #modifyFileForm label {
   display: block;
-  margin-bottom: 6vh;
+  margin-bottom: 5vh;
 }
 .modal-footer {
   border-top: 0 none;
