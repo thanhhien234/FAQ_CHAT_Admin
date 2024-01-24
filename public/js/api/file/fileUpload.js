@@ -13,10 +13,10 @@ async function uploadFile(file, fileName) {
         contentType: false,
 
         success: function (response) {
-            console.log('File Upload Success:', response);
+            fileListSearch(currentPage, pageSize);
         },
         error: function (err) {
-            console.error('File Upload Error:', err);
+            alert('파일 업로드는 실패했습니다')
         }
     });
 }

@@ -6,10 +6,10 @@ async function modifyFile(fileId, name) {
             Authorization: "Bearer " + getCookie("accessToken")
         },
         success: function(response) {
-            console.log('Modify File success');
+            fileListSearch(currentPage, pageSize);
         },
         error: function(err) {
-            console.error(err);
+            alert('파일 수정은 실패했습니다')
         }
     });
 }

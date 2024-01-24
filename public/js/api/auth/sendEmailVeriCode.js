@@ -8,14 +8,10 @@ async function sendVerificationCode(email) {
         contentType: 'application/json; charset=utf-8',
         
         success: function(response) {
-            console.log('Success:', response);
-            resolve(response); 
+            alert('인증코드를 이메일로 전송했습니다');
         },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.error('AJAX Error:', textStatus, errorThrown);
-            console.log('Response code:', jqXHR.status);
-            console.log('Response text:', jqXHR.responseText); 
-            reject(errorThrown);
+        error: function(err) {
+            alert('인증코드 전송은 오류가 발생했습니다. 다시 시도해 주세요');
         }
     });
 }
