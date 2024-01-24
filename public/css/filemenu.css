@@ -3,7 +3,6 @@
     position: absolute;
     right: 104px;
     bottom: 76px;
-    display: none;
     box-sizing: border-box;
 }
 
@@ -22,6 +21,7 @@
 }
 
 #menu-open-button {
+    display: flex;
     position: absolute;
     right: 109px;
     bottom: 81px;
@@ -31,7 +31,6 @@
     border-radius: 50%;
     border: none;
     flex: none;
-    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -100,14 +99,47 @@
     min-height: 0;
 }
 
+.mobile-file-button-container {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 24, 50, 0.4);
+    width: 100%;
+    display: none;
+    padding: 20px 50px;
+    border-radius: 20px 20px 0 0;
+}
+
+.mobile-file-button-inner {
+    margin: auto;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mobile-file-button-inner button {
+    border: none;
+    background: none;
+}
+
+.hide {
+    display: none !important;
+}
+
 @media screen and (max-width: 900px) {
     .file-menu-container {
         right: 50px;
         bottom: 50px;
+        display: none;
     }
 
     #menu-open-button {
         right: 55px;
         bottom: 55px;
+        display: none;
+    }
+
+    .mobile-file-button-container {
+        display: flex;
     }
 }
