@@ -72,9 +72,9 @@
           <div class="name"></div>
         </div>
         <div class="mobile-student-container">
-          <div class="back-arrow">
+          <button class="back-arrow">
             <img src="/public/assets/icon/arrowback.png" alt="back-arrow-icon">
-        </div>
+          </button>
           <div class="name"></div>
         </div>
         <div class="instructor-message-container">
@@ -90,6 +90,11 @@
           </div>
         </div>
 
+      </div>
+      <div class="mobile-chat-list-container">
+        <ul class="mobile-chat-list">
+          <!--     chat lists     -->
+        </ul>
       </div>
     </div>
     <div class="file-section">
@@ -123,7 +128,7 @@
         </table>
       </div>
     </div>
-    <div class="file-menu-container">
+    <div class="file-menu-container hide">
       <div class="file-menu-inner close">
         <div class="file-menus">
           <div class="file-button-wrap">
@@ -148,9 +153,10 @@
         </div>
       </div>
     </div>
-    <button id="menu-open-button">
+    <button id="menu-open-button" class="hide">
       <img src="../public/assets/icon/option_icon.png" alt="">
     </button>
+
     <div class="modal" id="modifyFileModal" role="dialog">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -167,6 +173,20 @@
             <button type="button" class="btn btn-primary" id="saveChangesBtn">확인</button>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="mobile-file-button-container hide">
+      <div class="mobile-file-button-inner">
+        <button id="mobile-modify">
+          <img src="/public/assets/icon/mobile_modify_icon.png" alt="">
+        </button>
+        <button id="mobile-add">
+          <img src="/public/assets/icon/mobile_add_icon.png" alt="">
+        </button>
+        <button id="mobile-remove">
+          <img src="/public/assets/icon/mobile_remove_icon.png" alt="">
+        </button>
       </div>
     </div>
 
