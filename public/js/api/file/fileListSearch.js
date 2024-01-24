@@ -9,7 +9,6 @@ async function fileListSearch(page, pageSize) {
             Authorization: "Bearer " + getCookie("accessToken")
         },
         success: function (res) {
-            console.log(res)
             const totalPages = res.fileCount / pageSize;
             /* large screen */
             $("#fileTable tbody").empty();
@@ -71,7 +70,7 @@ async function fileListSearch(page, pageSize) {
 
         },
         error: function (err) {
-            console.error(err);
+            alert('서버 오류입니다. ')
         }
     })
 }

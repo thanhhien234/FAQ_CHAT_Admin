@@ -21,7 +21,6 @@ function handleCheckbox(checkbox, fileName) {
         $(`#mobile-fileTable tbody #${fileId}`).next('label').css('background-image', 'url(/public/assets/icon/uncheckBox.png)');
         checkedFileIds = checkedFileIds.filter(id => id !== fileId);
     }
-    console.log("Checked FileIds:", checkedFileIds);
 }
 
 

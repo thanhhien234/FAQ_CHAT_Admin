@@ -6,11 +6,10 @@ async function deleteFile(fileIdList) {
             Authorization: "Bearer " + getCookie("accessToken")
         },       
         success: function(response) {
-            console.log('Delete File success');
             fileListSearch(currentPage, pageSize);
         },
         error: function(err) {
-            console.error(err);
+            alert('파일 삭제는 실패했습니다')
         }
     });
 }
