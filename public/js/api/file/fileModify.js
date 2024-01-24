@@ -9,7 +9,7 @@ async function modifyFile(fileId, name) {
             fileListSearch(currentPage, pageSize);
         },
         error: function(err) {
-            alert('파일 수정은 실패했습니다')
+            alert('서버 오류입니다. 잠시 후 다시 시도해주세요.');
         }
     });
 }

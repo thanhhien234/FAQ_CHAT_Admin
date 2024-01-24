@@ -9,9 +9,10 @@ if (!!loginCode) {
         success: function (res) {
             setCookie('accessToken', res.accessToken, accessTime);
             setCookie('refreshToken', res.refreshToken, refreshTime);
-            if (res.registerStateEnum === "INACTIVE")
-                window.location.href = '/register.html';
-            else
+            if (res.registerStateEnum === "INACTIVE") {
+                alert("관리자에게 사용자 등록 요청해주세요.");
+                window.location.href = '/';
+            } else
                 window.location.href = '/';
         },
         error: function (err) {

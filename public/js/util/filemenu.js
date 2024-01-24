@@ -12,13 +12,13 @@ fileMenuBtn.on("click", function () {
 })
 
 mobileModifyBtn.click(() => {
-//     파일 수정 버튼 클릭
+    $('#file-modify-button').click();
 })
 
 mobileAddBtn.click(() => {
-//     파일 추가 버튼 클릭
+    $('#file-add-button').click();
 })
 
 mobileRemoveBtn.click(() => {
-//     파일 삭제 버튼 클릭
+    $('#file-remove-button').click();
 })

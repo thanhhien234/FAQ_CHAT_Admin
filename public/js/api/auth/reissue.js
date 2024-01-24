@@ -9,7 +9,8 @@ async function reissue() {
             setCookie("accessToken", res.accessToken, 2 * 60);
             setCookie("refreshToken", res.refreshToken, 24 * 14 * 60);
             if (res.registerStateEnum === "INACTIVE") {
-                location.replace("/register.html");
+                alert("관리자에게 사용자 등록 요청해주세요.");
+                location.replace("/login.html");
             } else {
                 location.reload();
             }

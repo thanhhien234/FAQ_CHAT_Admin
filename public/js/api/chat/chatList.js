@@ -90,7 +90,7 @@ async function searchChatList(page, pageSize) {
             })
         },
         error: function (err) {
-            alert('서버 오류입니다.')
+            alert('서버 오류입니다. 잠시 후 다시 시도해주세요.');
         }
     })
 }
