@@ -9,12 +9,12 @@ function sendMessage(studentId) {
 
 $("#submit").on("click", function () {
     sendMessage(currentStudentId);
+    $("#messageInput").val("");
 });
 
 $("#messageInput").on("keydown", function (e) {
     if (e.key === "Enter") {
         e.preventDefault();
-        sendMessage(currentStudentId);
-        $("#messageInput").val("");
+        $("#submit").click();
     }
 });
