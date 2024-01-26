@@ -70,7 +70,7 @@ async function fileListSearch(page, pageSize) {
 
         },
         error: function (err) {
-            alert('서버 오류입니다. ')
+            alert('파일 조회 중 오류가 발생했습니다.');
         }
     })
 }
