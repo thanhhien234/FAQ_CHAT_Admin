@@ -4,6 +4,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin</title>
+
+    <!--  favicon  -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/public/assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/public/assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/public/assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/public/assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/public/assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/public/assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/public/assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/public/assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/public/assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/public/assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/public/assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
           crossorigin="anonymous">
@@ -72,9 +92,9 @@
           <div class="name"></div>
         </div>
         <div class="mobile-student-container">
-          <div class="back-arrow">
+          <button class="back-arrow">
             <img src="/public/assets/icon/arrowback.png" alt="back-arrow-icon">
-        </div>
+          </button>
           <div class="name"></div>
         </div>
         <div class="instructor-message-container">
@@ -90,6 +110,11 @@
           </div>
         </div>
 
+      </div>
+      <div class="mobile-chat-list-container">
+        <ul class="mobile-chat-list">
+          <!--     chat lists     -->
+        </ul>
       </div>
     </div>
     <div class="file-section">
@@ -123,7 +148,7 @@
         </table>
       </div>
     </div>
-    <div class="file-menu-container">
+    <div class="file-menu-container hide">
       <div class="file-menu-inner close">
         <div class="file-menus">
           <div class="file-button-wrap">
@@ -139,6 +164,7 @@
             <span class="file-button-label">제목 수정</span>
           </div>
           <div class="file-button-wrap">
+            <input type="file" id="file-input" style="display: none;">
             <button id="file-add-button">
               <img src="../public/assets/icon/add_icon.png" alt="">
             </button>
@@ -147,9 +173,43 @@
         </div>
       </div>
     </div>
-    <button id="menu-open-button">
+    <button id="menu-open-button" class="hide">
       <img src="../public/assets/icon/option_icon.png" alt="">
     </button>
+
+    <div class="modal" id="modifyFileModal" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form id="modifyFileForm">
+              <div class="form-group">
+                <label for="newFileNameInput">수정하고 싶은 제목을 입력해주세요.</label>
+                <input type="text" id="newFileNameInput" placeholder="">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancelBtn">취소</button>
+            <button type="button" class="btn btn-primary" id="saveChangesBtn">확인</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-file-button-container hide">
+      <div class="mobile-file-button-inner">
+        <button id="mobile-modify">
+          <img src="/public/assets/icon/mobile_modify_icon.png" alt="">
+        </button>
+        <button id="mobile-add">
+          <img src="/public/assets/icon/mobile_add_icon.png" alt="">
+        </button>
+        <button id="mobile-remove">
+          <img src="/public/assets/icon/mobile_remove_icon.png" alt="">
+        </button>
+      </div>
+    </div>
+
   </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
@@ -176,5 +236,8 @@
     <script src="/public/js/api/chat/chatInstructor.js"></script>
     <script src="/public/js/util/studentChat.js"></script>
     <script src="/public/js/api/chat/answerToStudent.js"></script>
+    <script src="/public/js/api/file/fileDelete.js"></script>
+    <script src="/public/js/api/file/fileModify.js"></script>
+    <script src="/public/js/api/file/fileUpload.js"></script>
   </body>
 </html>

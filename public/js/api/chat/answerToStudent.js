@@ -13,11 +13,10 @@ async function answerToStudent(studentId, comment) {
         }),
 
         success: function (res) {
-            console.log('answer success', res);
             searchChat(studentId)
         },
         error: function (err) {
-            console.error(err);
+            alert('서버 오류입니다. 잠시 후 다시 시도해주세요.');
         }
     })
 }

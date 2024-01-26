@@ -18,3 +18,7 @@ $(document).on('click', '.list-inner', function() {
     }
 });
 
+$(".back-arrow").click(() => {
+    $(".main-content").hide();
+})
+

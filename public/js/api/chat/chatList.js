@@ -9,6 +9,7 @@ async function searchChatList(page, pageSize) {
 
         success: function (res) {
             const listContainer = $(".aside-chat-lists");
+            const mobileListContainer = $(".mobile-chat-list");
             const today = new Date(Date.now());
 
             res.chatRoomDaoList.forEach((chat) => {
@@ -62,10 +63,34 @@ async function searchChatList(page, pageSize) {
                         </div>
                       </li>
                 `)
+
+                mobileListContainer.append(`
+                    <li ${isToday ? "class='today'" : "" } data-name ="${chat.name}" data-studentid="${chat.student_id}">
+                        <div class="list-inner">
+                            <div class="header">
+                                <h5 class="user">${chat.name}(${chat.student_id})</h5>
+                                <span class="chat-time">${date}</span>
+                                ${
+                                    state === "읽지 않음" ? 
+                                        `<span class="badge unread">${state}</span>` : ""
+                                }
+                                ${
+                                    state === "답변 대기" ?
+                                        `<span class="badge no-reply">${state}</span>` : ""
+                                }
+                            </div>
+                            <div>
+                                <p class="content">
+                                    ${chat.comment}
+                                </p>
+                            </div>
+                        </div>
+                      </li>
+                `)
             })
         },
         error: function (err) {
-            console.error(err);
+            alert('서버 오류입니다. 잠시 후 다시 시도해주세요.');
         }
     })
 }

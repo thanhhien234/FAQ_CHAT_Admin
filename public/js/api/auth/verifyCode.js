@@ -9,10 +9,10 @@ async function verifyCode(email,code) {
         contentType: 'application/json; charset=utf-8',
         
         success: function(response) {
-            console.log('Success:', code);
+            alert('인증 성공했습니다.')
         },
         error: function(err) {
-            console.error(err);
+            alert('인증 실패했습니다.')
         }
     });
 }

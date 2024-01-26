@@ -78,7 +78,7 @@ async function searchChat(studentId) {
             container.scrollTop(container[0].scrollHeight); //scroll to bottom
         },
         error: function (err) {
-            console.error(err);
+            alert('서버 오류입니다. 잠시 후 다시 시도해주세요.');
         }
     });
 }

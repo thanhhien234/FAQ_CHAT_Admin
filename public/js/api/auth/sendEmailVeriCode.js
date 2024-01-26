@@ -7,15 +7,10 @@ async function sendVerificationCode(email) {
         }),
         contentType: 'application/json; charset=utf-8',
         
-        success: function(response) {
-            console.log('Success:', response);
-            resolve(response); 
+        success: function() {
         },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.error('AJAX Error:', textStatus, errorThrown);
-            console.log('Response code:', jqXHR.status);
-            console.log('Response text:', jqXHR.responseText); 
-            reject(errorThrown);
+        error: function(err) {
+            alert('인증코드 전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요');
         }
     });
 }
