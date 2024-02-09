@@ -177,19 +177,20 @@ html, body {
 /* mobile screen*/
 @media screen and (max-width: 900px) {
   .main-container{
-      padding-top: 80px;
+    background: #001832;
+    padding-top: 80px;
   }
   .main-section {
-      padding: 0;
-      height: 100%;
+    padding: 0;
+    height: 100%;
   }
 
   .main-content {
-      box-shadow: none;
-      border-radius: 0;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
   }
   .input-chat-container{
     margin-bottom: 30px;
