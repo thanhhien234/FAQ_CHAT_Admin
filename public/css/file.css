@@ -1,8 +1,8 @@
-.file-container {
+.file-wrapper {
     width: 100%;
     margin: auto;
 }
-.file-section {
+.file-container {
     display: flex;
     flex-direction: column;
     margin: 40px auto;
@@ -13,29 +13,29 @@ table {
     width: 100%;
 }
 
-.file-container thead{
+.file-wrapper thead{
     background-color: rgba(0, 24, 50, 0.1);
     font-size: 16px;
     color: #001832;
 }
-.file-container th{
+.file-wrapper th{
     padding: 10px;
     height: 30px;
 }
-.file-container td {
+.file-wrapper td {
     padding: 10px;
     height: 55px;
     text-align: center;
 }
-.file-container th img {
+.file-wrapper th img {
     width: 15px; 
     height: 15px; 
 }
 
-.file-container td input[type="checkbox"] {
+.file-wrapper td input[type="checkbox"] {
     display: none;
 }
-.file-container label {
+.file-wrapper label {
     cursor: pointer;
     width: 15px;
     height: 15px;
@@ -44,28 +44,28 @@ table {
 }
 
 
-.file-container th:nth-child(1){
+.file-wrapper th:nth-child(1){
     text-align: center;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     width: 8%;
 }
-.file-container th:nth-child(4){
+.file-wrapper th:nth-child(4){
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
-.file-container th:nth-child(2){
+.file-wrapper th:nth-child(2){
     text-align: center;
 }
 
-.file-container td:nth-child(2){
+.file-wrapper td:nth-child(2){
     color: #000;
     font-size: 14px;
     text-align: center;
     width: 8%;
 }
 
-.file-container td:nth-child(3) {
+.file-wrapper td:nth-child(3) {
     color: #000;
     font-size: 14px;
     width: 54%;
@@ -73,17 +73,17 @@ table {
 }
 
 
-.file-container td:nth-child(4) {
+.file-wrapper td:nth-child(4) {
     color: rgba(38, 64, 93, 0.6);
     font-size: 14px;
     text-align: left;
     width: 30%;
 }
 
-.file-container tr { 
+.file-wrapper tr { 
     border-bottom: 1px solid #CAD4DF;
 }
-.file-container thead tr {
+.file-wrapper thead tr {
     border-bottom: none; 
 }
 
@@ -105,10 +105,10 @@ table {
 }
 
 @media screen and (max-width: 900px) {
-    .file-container {
+    .file-wrapper {
         display: none;
     }
-    .file-section {
+    .file-container {
         width: 100%;
     }
     

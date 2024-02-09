@@ -6,8 +6,8 @@ const listRightContent = $("li > .aside-menus-item-right");
 const chatList = $(".aside-chat-lists");
 const fileMenus = $(".file-menu-container");
 const fileMenuBtn = $("#menu-open-button");
-const instructorContainer = $(".main-section");
-const fileContainer = $(".file-section");
+const instructorContainer = $(".main-content-container");
+const fileContainer = $(".file-container");
 
 // Mobile Menus
 const mobileMenuList = $(".mobile-menu-container > li");
