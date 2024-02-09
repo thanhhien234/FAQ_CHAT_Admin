@@ -10,8 +10,8 @@ const instructorContainer = $(".main-section");
 const fileContainer = $(".file-section");
 
 // Mobile Menus
-const mobileMenuList = $(".mobile-menus > li");
-let mobileActiveList = $(".mobile-menus > .active");
+const mobileMenuList = $(".mobile-menu-container > li");
+let mobileActiveList = $(".mobile-menu-container > .active");
 const mobileFileBtnContainer = $(".mobile-file-button-container");
 
 // Initialize
@@ -90,8 +90,7 @@ mobileMenuList.on("click", function (e) {
             $("#files-menu").click();
             break;
     }
-    mobileActiveList = $(".mobile-menus > .active");
-
+    mobileActiveList = $(".mobile-menu-container > .active");
 })
 
 $("#answer-menu").trigger("click"); //initially
