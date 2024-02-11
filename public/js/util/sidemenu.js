@@ -64,6 +64,8 @@ menuList.on("click", function (e) {
             mobileFileBtnContainer.removeClass("hide");
             instructorContainer.hide();
             fileContainer.show();
+            $("#categorySelect").val("all");
+            $("#categorySelect").change();
             break;
     }
     activeList = $(".aside-menus > .active");
@@ -88,6 +90,8 @@ mobileMenuList.on("click", function (e) {
         case "mobile-files-menu":
             $("#mobile-files-menu img").attr("src", "../public/assets/icon/file_selected_icon.png");
             $("#files-menu").click();
+            $("#categorySelect").val("all");
+            $("#categorySelect").change();
             break;
     }
     mobileActiveList = $(".mobile-menu-container > .active");

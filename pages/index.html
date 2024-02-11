@@ -119,8 +119,8 @@
     </div>
     <div class="file-container">
       <div class="category-select-wrapper">
-        <select id="categorySelect">
-            <option value="all">최근 게시된 순으로 보기</option>
+        <select id="categorySelect" onchange="handleCategoryChange()">
+            <option value="all" selected>최근 게시된 순으로 보기</option>
             <!-- <option value="category"></option> -->
         </select>
       </div>
@@ -273,5 +273,8 @@
     <script src="/public/js/api/file/fileModify.js"></script>
     <script src="/public/js/api/file/fileUpload.js"></script>
     <script src="/public/js/api/file/categoryAll.js"></script>
+    <script src="/public/js/api/file/categorySearch.js"></script>
+    <script src="/public/js/util/searchCategory.js"></script>
+    <script src="/public/js/util/fileTableData.js"></script>
   </body>
 </html>
