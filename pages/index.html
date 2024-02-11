@@ -118,12 +118,19 @@
       </div>
     </div>
     <div class="file-container">
+      <div class="category-select-wrapper">
+        <select id="categorySelect">
+            <option value="all">최근 게시된 순으로 보기</option>
+            <!-- <option value="category"></option> -->
+        </select>
+      </div>
       <div class="file-wrapper"> 
         <table id="fileTable">
           <thead>
               <tr>
                   <th><img src="/public/assets/icon/uncheckBox.png"></th>
                   <th>순서</th>
+                  <th>카테고리</th>
                   <th>제목</th>
                   <th>게시일</th>
               </tr>
@@ -265,5 +272,6 @@
     <script src="/public/js/api/file/fileDelete.js"></script>
     <script src="/public/js/api/file/fileModify.js"></script>
     <script src="/public/js/api/file/fileUpload.js"></script>
+    <script src="/public/js/api/file/categoryAll.js"></script>
   </body>
 </html>
