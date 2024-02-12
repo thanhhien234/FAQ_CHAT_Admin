@@ -1,22 +1,16 @@
-.file-wrapper {
-    width: 100%;
-    margin: auto;
-}
 .file-container {
     display: flex;
     flex-direction: column;
-    margin: 40px auto;
+    margin: 60px auto;
     width: 60%;
-}
-
-table {
-    width: 100%;
+    height: 90%;
 }
 
 .file-wrapper thead{
     background-color: rgba(0, 24, 50, 0.1);
     font-size: 14px;
     color: #001832;
+    border-radius: 20px;
 }
 .file-wrapper th{
     padding: 10px;
@@ -50,12 +44,19 @@ table {
     text-align: center;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    width: 10%;
+    width: 8%;
+}
+.file-wrapper th:nth-child(4){
+    width: 40%;
 }
 .file-wrapper th:nth-child(5){
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+.file-wrapper td:nth-child(1){
+    width: 8%;
+}
+
 .file-wrapper th:nth-child(2){
     width: 8%;
     text-align: center;
@@ -65,6 +66,7 @@ table {
 }
 .file-wrapper th:nth-child(3){
     text-align: center;
+    width: 20%;
 }
 
 .file-wrapper td:nth-child(2){
@@ -112,29 +114,28 @@ table {
     border-bottom: none; 
 }
 
-/*paging button*/
-.myPaging {
-    text-align: center;
-    margin-top: 10px;
+.file-wrapper #fileTable {
+    height: 550px;
 }
-.pageButton {
-    background-color: transparent;
-    color: #000;
-    font-size: 14px;
-    border: none;
-    text-decoration: none;
+.file-wrapper #fileTable tbody{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    display: block;
 }
-.pageButton.current {
-    text-decoration: underline;
-    font-weight: bold;
+.file-wrapper #fileTable tbody::-webkit-scrollbar {
+    display: none;
 }
-
+.file-wrapper #fileTable thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
 /*category select*/
 .category-select-wrapper {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 8px;
 }
 #categorySelect::-ms-expand {
     display: none; 
@@ -152,6 +153,7 @@ table {
     align-self: right;
     border: none;
     font-size: 12px;
+    color: #7D8C9E;
 }
 #categorySelect option {
     background-color: #F8FBFF; 
