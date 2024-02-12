@@ -6,6 +6,7 @@ async function modifyCategory(old_category, new_category) {
       Authorization: "Bearer " + getCookie("accessToken")
     },
     success: function (res) {
+      categoryAllSearch()
       console.log("modify category success");
     }
   })

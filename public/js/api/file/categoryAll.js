@@ -15,6 +15,7 @@ async function categoryAllSearch() {
         },
         success: function (res) {
             const categorySelect = document.getElementById('categorySelect');
+            categorySelect.innerHTML = '<option value="all" selected>최근 게시된 순으로 보기</option>';
             res.forEach(function(category,index) {
                 categoryAllData[category.name] = category.count;
                 totalFiles += category.count;

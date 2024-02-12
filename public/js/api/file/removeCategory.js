@@ -6,6 +6,7 @@ async function removeCategory(category) {
       Authorization: "Bearer " + getCookie("accessToken")
     },
     success: function (res) {
+      categoryAllSearch()
       console.log("delete category success");
     }
   })
