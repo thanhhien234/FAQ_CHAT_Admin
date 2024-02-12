@@ -86,22 +86,22 @@
         </ul>
       </div>
     </div>
-    <div class="main-section">
+    <div class="main-content-container">
       <div class="main-content">
-        <div class="student-container">
+        <div class="student-wrapper">
           <div class="name"></div>
         </div>
-        <div class="mobile-student-container">
+        <div class="mobile-student-wrapper">
           <button class="back-arrow">
             <img src="/public/assets/icon/arrowback.png" alt="back-arrow-icon">
           </button>
           <div class="name"></div>
         </div>
-        <div class="instructor-message-container">
+        <div class="instructor-wrapper">
           <!-- instructor q&a -->
         </div>
 
-        <div class="input-chat-container"> <!--   input message   -->
+        <div class="input-chat-wrapper"> <!--   input message   -->
           <div class="input-chat-inner">
             <textarea id="messageInput" placeholder="답변을 입력해주세요."></textarea>
             <button type="submit" id="submit">
@@ -117,13 +117,20 @@
         </ul>
       </div>
     </div>
-    <div class="file-section">
-      <div class="file-container"> 
+    <div class="file-container">
+      <div class="category-select-wrapper">
+        <select id="categorySelect" onchange="handleCategoryChange()">
+            <option value="all" selected>최근 게시된 순으로 보기</option>
+            <!-- <option value="category"></option> -->
+        </select>
+      </div>
+      <div class="file-wrapper"> 
         <table id="fileTable">
           <thead>
               <tr>
                   <th><img src="/public/assets/icon/uncheckBox.png"></th>
                   <th>순서</th>
+                  <th>카테고리</th>
                   <th>제목</th>
                   <th>게시일</th>
               </tr>
@@ -133,7 +140,7 @@
           </tbody>
         </table>
       </div>
-      <div class="mobile-file-container"> 
+      <div class="mobile-file-wrapper"> 
         <table id="mobile-fileTable">
           <thead>
               <tr>
@@ -265,5 +272,9 @@
     <script src="/public/js/api/file/fileDelete.js"></script>
     <script src="/public/js/api/file/fileModify.js"></script>
     <script src="/public/js/api/file/fileUpload.js"></script>
+    <script src="/public/js/api/file/categoryAll.js"></script>
+    <script src="/public/js/api/file/categorySearch.js"></script>
+    <script src="/public/js/util/searchCategory.js"></script>
+    <script src="/public/js/util/fileTableData.js"></script>
   </body>
 </html>
