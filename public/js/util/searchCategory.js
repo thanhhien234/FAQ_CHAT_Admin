@@ -11,6 +11,12 @@ function handleCategoryChange() {
         fileListSearch(currentPage, pageSize);
     } else {
         pageSize= categoryAllData[categoryName];
-        categorySearch(currentPage, pageSize, categoryName);
+        if(pageSize === 0){
+            renderFileTableData([])
+        }
+        else{
+            categorySearch(currentPage, pageSize, categoryName);
+        }
+        
     }
 }
