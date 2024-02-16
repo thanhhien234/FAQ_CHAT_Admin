@@ -166,6 +166,7 @@
     outline: none; 
     display: inline-block;
     vertical-align: middle;
+    min-width: 10px;
 }
 .add-category-btn {
     display: inline-block;
@@ -229,4 +230,9 @@
 }
 .category-modal-footer .btn-primary {
     margin-left: 10px;
+}
+
+
+.transparent-background {
+    background-color: transparent !important; /* Adding !important to override any other styles */
 }

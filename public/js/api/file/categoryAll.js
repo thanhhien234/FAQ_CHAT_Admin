@@ -88,9 +88,34 @@ function renderCategoryItemsContainer(res) {
     // Call addCategory.js
     addCategoryBtn.addEventListener('click', function() {
         const categoryName = addCategoryInput.textContent.trim();
-        addCategory(categoryName);
-        alert("카테고리가 추가되었습니다.");
-        categoryAllSearch();
+        if (categoryName) {
+            addCategory(categoryName)
+            .then(() => {
+                alert("카테고리가 추가되었습니다.");
+                categoryAllSearch();
+                $('.spinner-container').css('display', 'none');
+            });
+        }
+        else {
+            addCategoryInput.textContent = '카테고리 추가';
+        }
+    });
+    addCategoryInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); 
+            const categoryName = this.textContent.trim();
+            if (categoryName) {
+                addCategory(categoryName)
+                .then(() => {
+                    alert("카테고리가 추가되었습니다.");
+                    categoryAllSearch();
+                    $('.spinner-container').css('display', 'none');
+                });
+            }
+            else {
+                addCategoryInput.textContent = '카테고리 추가';
+            }
+        }
     });
 
     addCategoryBtn.appendChild(addCategoryIcon);
