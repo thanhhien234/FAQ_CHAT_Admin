@@ -1,4 +1,5 @@
 async function removeCategory(category) {
+  $('.spinner-container').css('display', 'block');
   await $.ajax({
     url: config.fileServer + "/api/auth/category?category=" + category,
     type: "DELETE",
@@ -6,7 +7,8 @@ async function removeCategory(category) {
       Authorization: "Bearer " + getCookie("accessToken")
     },
     success: function (res) {
-      categoryAllSearch()
+      categoryAllSearch();
+      $('.spinner-container').css('display', 'none');
     }
   })
 }
