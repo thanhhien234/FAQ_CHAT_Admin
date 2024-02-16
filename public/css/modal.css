@@ -231,8 +231,3 @@
 .category-modal-footer .btn-primary {
     margin-left: 10px;
 }
-
-
-.transparent-background {
-    background-color: transparent !important; /* Adding !important to override any other styles */
-}
