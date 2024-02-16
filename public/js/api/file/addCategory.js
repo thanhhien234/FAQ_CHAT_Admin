@@ -7,7 +7,6 @@ async function addCategory(category) {
     },
     succcess: function (res) {
       categoryAllSearch()
-      console.log("Post category success");
     }
   })
 }

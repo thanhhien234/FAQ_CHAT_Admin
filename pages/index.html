@@ -221,13 +221,14 @@
                           </div>
                           <div class="row" id="categoryItemsContainer">
                             <!-- category items -->
+                          </div>
                       </div>
                       <div class="change-category-container">
                         <div class="change-name-text">
                             <span>카테고리 이름 변경하기</span>
                         </div>
                         <div class="change-category-content">
-                            <select id="changeCategorySelect" onchange="handleCategoryChangeModal()">
+                            <select id="changeCategorySelect">
                                 <option value="" disabled selected hidden>변경할 카테고리</option>
                             </select>
                             <img src="/public/assets/icon/arrowRight.png" alt="Arrow Icon" class="arrow-right-icon">
@@ -308,6 +309,9 @@
     <script src="/public/js/api/file/fileDelete.js"></script>
     <script src="/public/js/api/file/fileModify.js"></script>
     <script src="/public/js/api/file/fileUpload.js"></script>
+    <script src="/public/js/api/file/addCategory.js"></script>
+    <script src="/public/js/api/file/removeCategory.js"></script>
+    <script src="/public/js/api/file/modifyCategory.js"></script>
     <script src="/public/js/api/file/categoryAll.js"></script>
     <script src="/public/js/api/file/categorySearch.js"></script>
     <script src="/public/js/util/searchCategory.js"></script>

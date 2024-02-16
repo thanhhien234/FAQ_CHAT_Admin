@@ -152,12 +152,33 @@
 }
 
 .add-wrapper {
-    padding: 10px;
+    border: 1px solid #E6E8EB;
+    border-radius: 8px;
+    padding: 3px 0px; 
+    padding-left: 10px;
+    color: #001832;
+    width: fit-content;
+    margin-left: 10px;
+    margin-bottom: 5px;
 }
 .add-category-input {
-    
+    border: none;
+    outline: none; 
+    display: inline-block;
+    vertical-align: middle;
+}
+.add-category-btn {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
 }
 
+.add-category-btn img {
+    width: 20px;
+    height: 20px;
+}
 
 
 /*change-category-container*/

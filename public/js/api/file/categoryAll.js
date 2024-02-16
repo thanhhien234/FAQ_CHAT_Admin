@@ -37,6 +37,7 @@ function renderChangeCategorySelect(res){
 }
 function renderCategoryItemsContainer(res) {
     const categoryItemsContainer = document.getElementById('categoryItemsContainer');
+    categoryItemsContainer.innerHTML = '';
 
     res.forEach(function(category, index) {
         const categoryItemContainer = document.createElement('div');
@@ -53,6 +54,11 @@ function renderCategoryItemsContainer(res) {
         const deleteIcon = document.createElement('img');
         deleteIcon.src = '/public/assets/icon/deleteIcon.png';
 
+        // Call removeCategory.js
+        deleteCategoryBtn.addEventListener('click', function() {
+            removeCategory(category.name); 
+        });
+
         deleteCategoryBtn.appendChild(deleteIcon);
         categoryItemContainer.appendChild(categoryTextName);
         categoryItemContainer.appendChild(deleteCategoryBtn);
@@ -63,22 +69,35 @@ function renderCategoryItemsContainer(res) {
     const addCategoryWrapper = document.createElement('div');
     addCategoryWrapper.classList.add('add-wrapper');
 
-    const addCategoryInput = document.createElement('input');
-    addCategoryInput.type = 'text';
-    addCategoryInput.placeholder = '카테고리 추가';
+    const addCategoryInput = document.createElement('div');
+    addCategoryInput.textContent = '카테고리 추가';
     addCategoryInput.classList.add('add-category-input');
-    const placeholderWidth = addCategoryInput.placeholder.length * 10 + 30;  //size as placeholder at first
-    addCategoryInput.style.width = placeholderWidth + 'px';
-
-    addCategoryInput.addEventListener('input', function() {
-        this.style.width = (this.value.length * 8 + 20) + 'px';   //dynamic size
+    addCategoryInput.setAttribute('contenteditable', 'true');
+    addCategoryInput.addEventListener('click', function() {
+        if (this.textContent.trim() === '카테고리 추가') {
+            this.textContent = ' ';
+            this.focus();
+        }
+    });
+    const addCategoryBtn = document.createElement('button');
+    addCategoryBtn.type = 'button';
+    addCategoryBtn.classList.add('add-category-btn');
+    const addCategoryIcon = document.createElement('img');
+    addCategoryIcon.src = '/public/assets/icon/addCategoryBtn.png';
+    
+    // Call addCategory.js
+    addCategoryBtn.addEventListener('click', function() {
+        const categoryName = addCategoryInput.textContent.trim();
+        addCategory(categoryName);
+        alert("카테고리가 추가되었습니다.");
+        categoryAllSearch();
     });
 
+    addCategoryBtn.appendChild(addCategoryIcon);
     addCategoryWrapper.appendChild(addCategoryInput);
+    addCategoryWrapper.appendChild(addCategoryBtn);
     categoryItemsContainer.appendChild(addCategoryWrapper);
-
 }
-
 
 async function categoryAllSearch() {
     await $.ajax({

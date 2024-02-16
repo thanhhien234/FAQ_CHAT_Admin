@@ -7,7 +7,6 @@ async function modifyCategory(old_category, new_category) {
     },
     success: function (res) {
       categoryAllSearch()
-      console.log("modify category success");
     }
   })
 }

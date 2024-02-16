@@ -7,7 +7,6 @@ async function removeCategory(category) {
     },
     success: function (res) {
       categoryAllSearch()
-      console.log("delete category success");
     }
   })
 }
