@@ -3,7 +3,7 @@
     flex-direction: column;
     margin: 60px auto;
     width: 60%;
-    height: 90%;
+    overflow: hidden;
 }
 
 .file-wrapper thead{
@@ -115,7 +115,7 @@
 }
 
 .file-wrapper #fileTable {
-    height: 550px;
+    height: 80vh;
 }
 .file-wrapper #fileTable tbody{
     overflow-y: auto;
@@ -130,6 +130,9 @@
     display: table;
     width: 100%;
     table-layout: fixed;
+}
+.file-wrapper tbody tr:last-child {
+    margin-bottom: 50px;
 }
 /*category select*/
 .category-select-wrapper {
