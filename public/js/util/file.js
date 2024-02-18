@@ -40,6 +40,7 @@ $(document).on('click', '#file-remove-button', function() {
 
 //modify file
 $(document).on('click', '#file-modify-button', function() {
+    $('.modifyFileFormText').text('파일 수정하기');
     if (checkedFileIds.length === 1) {
         $('#newFileNameInput').val(firstFilename);
         $('#newFileNameInput').css('color', '#929FAD');
@@ -49,6 +50,12 @@ $(document).on('click', '#file-modify-button', function() {
     }
 });
 $(document).on('click', '#saveChangesBtn', function() {
+    //select category
+    const selectedCategory = $('.category-modify-item-container.selected').text();
+    if (!selectedCategory) {
+        alert("카테고리를 선택해주세요.");
+        return;
+    }
     const newFileName = $('#newFileNameInput').val();
     if (checkedFileIds.length === 1) {
         modifyFile(checkedFileIds[0], newFileName);
@@ -56,7 +63,8 @@ $(document).on('click', '#saveChangesBtn', function() {
         checkedFileIds = [];
     }
     else{
-        uploadFile(file, newFileName);
+        uploadFile(file, newFileName, selectedCategory);
+        categoryAllSearch();
         $('#modifyFileModal').modal('hide');
     }
     $('#file-input').val(''); 
@@ -65,15 +73,29 @@ $(document).on('click', '#saveChangesBtn', function() {
 $(document).on('click', '#cancelBtn', function() {
     $('#modifyFileModal').modal('hide');
     $('#file-input').val(''); 
+    $('.category-modify-item-container').removeClass('selected');
+    file = null;
 }); 
 $(document).on('click', '#newFileNameInput', function() {
     $('#newFileNameInput').css('color', '#001832');
-}); 
+});
+
+$(document).ready(function() {
+    $(document).on('click', '.category-modify-item-container', function() {
+        $('.category-modify-item-container').removeClass('selected');
+        $(this).addClass('selected');
+    });
+});
+
+
+
+
 
 
 //add file
 $(document).on('click', '#file-add-button', function () {
     $('#file-input').click();
+    $('.modifyFileFormText').text('파일 업로드하기');
 });
 $(document).on('change', '#file-input', function () {
     const fileInput = this;
@@ -87,4 +109,9 @@ $(document).on('change', '#file-input', function () {
     }
 });
 
-
+//click outside modal
+$(document).on('click', function(event) {
+    if ($('#modifyFileModal').is(':visible') && !$(event.target).closest('#modifyFileModal').length) {
+        $('#cancelBtn').click();
+    }
+});

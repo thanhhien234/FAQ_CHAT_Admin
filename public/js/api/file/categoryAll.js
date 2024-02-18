@@ -35,7 +35,7 @@ function renderChangeCategorySelect(res){
         changeCategorySelect.appendChild(option);
     });
 }
-function renderCategoryItemsContainer(res) {
+function renderCategoryItemsContainer(res) {  
     const categoryItemsContainer = document.getElementById('categoryItemsContainer');
     categoryItemsContainer.innerHTML = '';
 
@@ -124,6 +124,23 @@ function renderCategoryItemsContainer(res) {
     categoryItemsContainer.appendChild(addCategoryWrapper);
 }
 
+function renderCategoryModifyItemsContainer(res) {
+    const categoryItemsContainer = document.getElementById('categoryModifyItemsContainer');
+    categoryItemsContainer.innerHTML = '';
+    res.forEach(function(category) {
+        const categoryItemContainer = document.createElement('div');
+        categoryItemContainer.classList.add('category-modify-item-container');
+
+        const categoryTextName = document.createElement('span');
+        categoryTextName.classList.add('category-modify-text-name');
+        categoryTextName.textContent = category.name;
+
+        categoryItemContainer.appendChild(categoryTextName);
+        categoryItemsContainer.appendChild(categoryItemContainer);
+    });
+}
+
+
 async function categoryAllSearch() {
     await $.ajax({
         url: config.fileServer + `/api/category/all`,
@@ -135,6 +152,7 @@ async function categoryAllSearch() {
             renderCategorySelect(res);  //into main screen select
             renderChangeCategorySelect(res); //into categoryModal select
             renderCategoryItemsContainer(res); //into categoryModal's body
+            renderCategoryModifyItemsContainer(res); // into modifyFileModal's body
         },
         error: function (err) {
             alert('카테고리 조회 중 오류가 발생했습니다.');

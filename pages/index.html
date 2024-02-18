@@ -196,9 +196,16 @@
         <div class="modal-content">
           <div class="modal-body">
             <form id="modifyFileForm">
+              <span class="modifyFileFormText">파일 수정하기</span>
               <div class="form-group">
-                <label for="newFileNameInput">수정하고 싶은 제목을 입력해주세요.</label>
+                <label for="newFileNameInput">파일 제목</label>
                 <input type="text" id="newFileNameInput" placeholder="">
+                <div class="category-container">
+                  <span>파일 카테고리</span>
+                  <div class="row" id="categoryModifyItemsContainer">
+                    <!-- category items -->
+                  </div>
+                </div>
               </div>
             </form>
           </div>
