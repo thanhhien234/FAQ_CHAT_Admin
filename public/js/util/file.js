@@ -41,6 +41,7 @@ $(document).on('click', '#file-remove-button', function() {
 //modify file
 $(document).on('click', '#file-modify-button', function() {
     $('.modifyFileFormText').text('파일 수정하기');
+    $('.category-container').hide();
     if (checkedFileIds.length === 1) {
         $('#newFileNameInput').val(firstFilename);
         $('#newFileNameInput').css('color', '#929FAD');
@@ -50,12 +51,6 @@ $(document).on('click', '#file-modify-button', function() {
     }
 });
 $(document).on('click', '#saveChangesBtn', function() {
-    //select category
-    const selectedCategory = $('.category-modify-item-container.selected').text();
-    if (!selectedCategory) {
-        alert("카테고리를 선택해주세요.");
-        return;
-    }
     const newFileName = $('#newFileNameInput').val();
     if (checkedFileIds.length === 1) {
         modifyFile(checkedFileIds[0], newFileName);
@@ -63,6 +58,12 @@ $(document).on('click', '#saveChangesBtn', function() {
         checkedFileIds = [];
     }
     else{
+        //select category
+        const selectedCategory = $('.category-modify-item-container.selected').text();
+        if (!selectedCategory) {
+            alert("카테고리를 선택해주세요.");
+            return;
+        }
         uploadFile(file, newFileName, selectedCategory);
         categoryAllSearch();
         $('#modifyFileModal').modal('hide');
@@ -96,6 +97,7 @@ $(document).ready(function() {
 $(document).on('click', '#file-add-button', function () {
     $('#file-input').click();
     $('.modifyFileFormText').text('파일 업로드하기');
+    $('.category-container').show();
 });
 $(document).on('change', '#file-input', function () {
     const fileInput = this;
@@ -111,7 +113,11 @@ $(document).on('change', '#file-input', function () {
 
 //click outside modal
 $(document).on('click', function(event) {
-    if ($('#modifyFileModal').is(':visible') && !$(event.target).closest('#modifyFileModal').length) {
+    const targetId = event.target.id;
+    if ($('#modifyFileModal').is(':visible') &&
+        targetId === 'file-modify-button' &&
+        targetId === 'file-add-button' &&
+        !$(event.target).closest('#modifyFileModal').length) {
         $('#cancelBtn').click();
     }
 });
