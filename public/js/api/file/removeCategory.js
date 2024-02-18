@@ -9,6 +9,12 @@ async function removeCategory(category) {
     success: function (res) {
       categoryAllSearch();
       $('.spinner-container').css('display', 'none');
+    },
+    error: function(xhr) {
+      if (xhr.status === 400) {
+        alert("파일 있는 카테고리를 삭제할 수 없습니다");
+        $('.spinner-container').css('display', 'none');
+      } 
     }
   })
 }
