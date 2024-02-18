@@ -1,4 +1,5 @@
 async function addCategory(category) {
+  $('.spinner-container').css('display', 'block');
   await $.ajax({
     url: config.fileServer + "/api/auth/category?category=" + category,
     type: "POST",
@@ -7,7 +8,6 @@ async function addCategory(category) {
     },
     succcess: function (res) {
       categoryAllSearch()
-      console.log("Post category success");
     }
   })
 }

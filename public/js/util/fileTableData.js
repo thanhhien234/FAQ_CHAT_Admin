@@ -54,10 +54,4 @@ function renderFileTableData(res){
             </tr>
         `);
     });
-
-    let emptyRow = pageSize - res.length;
-    for (let i = 0; i < emptyRow; i++) {
-        $("#fileTable tbody").append(`<tr><td></td><td></td><td></td><td></td><td></td></tr>`);
-        $("#mobile-fileTable tbody").append(`<tr><td></td><td></td><td></td><td></td></tr>`);
-    }
 }
