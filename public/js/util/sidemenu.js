@@ -33,14 +33,17 @@ toggleBtn.on("click", function () {
 
 menuList.on("click", function (e) {
     activeList.removeClass("active");
+    mobileActiveList.removeClass("active");
     switch (activeList.attr("id")) {
         case "answer-menu":
             $("#answer-menu img").attr("src", "/public/assets/icon/Message_white.png");
+            $("#mobile-answer-menu img").attr("src", "../public/assets/icon/Message_white.png");
             chatList.css("display", "none");
             sideBar.removeClass("chat-mode");
             break;
         case "files-menu":
             $("#files-menu img").attr("src", "/public/assets/icon/file_icon.png");
+            $("#mobile-files-menu img").attr("src", "../public/assets/icon/file_icon.png");
             fileMenus.addClass("hide");
             fileMenuBtn.addClass("hide");
             mobileFileBtnContainer.addClass("hide");
@@ -49,7 +52,9 @@ menuList.on("click", function (e) {
     $(e.currentTarget).addClass("active");
     switch ($(e.currentTarget).attr("id")) {
         case "answer-menu":
+            $("#mobile-answer-menu").addClass("active");
             $("#answer-menu img").attr("src", "/public/assets/icon/Message.png");
+            $("#mobile-answer-menu img").attr("src", "../public/assets/icon/Message.png");
             setTimeout(function () {
                 chatList.css("display", "block");
             }, 500);
@@ -60,7 +65,9 @@ menuList.on("click", function (e) {
             fileContainer.hide();
             break;
         case "files-menu":
+            $("#mobile-files-menu").addClass("active");
             $("#files-menu img").attr("src", "/public/assets/icon/file_selected_icon.png");
+            $("#mobile-files-menu img").attr("src", "../public/assets/icon/file_selected_icon.png");
             fileMenus.removeClass("hide");
             fileMenuBtn.removeClass("hide");
             mobileFileBtnContainer.removeClass("hide");
@@ -77,6 +84,7 @@ menuList.on("click", function (e) {
             break;
     }
     activeList = $(".aside-menus > .active");
+    mobileActiveList = $(".mobile-menu-container > .active");
 })
 
 mobileMenuList.on("click", function (e) {
