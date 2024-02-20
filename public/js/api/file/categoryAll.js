@@ -159,5 +159,5 @@ async function categoryAllSearch() {
         }
     })
 }
-categoryAllSearch();
+//categoryAllSearch();
 
