@@ -105,5 +105,3 @@ mobileMenuList.on("click", function (e) {
     }
     mobileActiveList = $(".mobile-menu-container > .active");
 })
-
-$("#answer-menu").trigger("click"); //initially
