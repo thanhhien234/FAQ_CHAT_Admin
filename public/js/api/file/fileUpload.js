@@ -13,7 +13,10 @@ async function uploadFile(file, fileName, category) {
         contentType: false,
 
         success: function (response) {
-            fileListSearch(currentPage, pageSize);
+            fileListSearch(currentPage, pageSize)
+            .then(() => {
+                $("#categorySelect").change();
+            });;
             $('#loadingModal').modal('hide');
         },
         error: function (err) {
