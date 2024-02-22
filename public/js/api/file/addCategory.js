@@ -7,7 +7,6 @@ async function addCategory(category) {
       Authorization: "Bearer " + getCookie("accessToken")
     },
     succcess: function (res) {
-      categoryAllSearch()
     }
   })
 }

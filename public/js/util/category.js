@@ -13,6 +13,10 @@ saveChangesBtn.addEventListener('click', function() {
         $('#categoryModal').modal('hide');
         return;
     }
+    if (Object.keys(categoryAllData).includes(newCategoryName)) {
+        alert("카테고리 이름이 중복되었습니다. 다시 입력해주세요");
+        return;
+    }
     modifyCategory(oldCategoryName, newCategoryName);
     alert("카테고리가 수정되었습니다.");
     $('#categoryModal').modal('hide')

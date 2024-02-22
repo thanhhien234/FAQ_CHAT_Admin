@@ -88,7 +88,13 @@ function renderCategoryItemsContainer(res) {
     // Call addCategory.js
     addCategoryBtn.addEventListener('click', function() {
         const categoryName = addCategoryInput.textContent.trim();
-        if (categoryName) {
+        if (categoryName && categoryName !== '카테고리 추가') {
+            const existingCategoryNames = res.map(item => item.name.trim());
+            if (existingCategoryNames.includes(categoryName)) {
+                alert("카테고리의 이름이 중복되었습니다");
+                addCategoryInput.textContent = '카테고리 추가';
+                return;
+            }
             addCategory(categoryName)
             .then(() => {
                 alert("카테고리가 추가되었습니다.");
@@ -104,7 +110,13 @@ function renderCategoryItemsContainer(res) {
         if (event.key === 'Enter') {
             event.preventDefault(); 
             const categoryName = this.textContent.trim();
-            if (categoryName) {
+            if (categoryName && categoryName !== '카테고리 추가') {
+                const existingCategoryNames = res.map(item => item.name.trim());
+                if (existingCategoryNames.includes(categoryName)) {
+                    alert("카테고리의 이름이 중복되었습니다");
+                    addCategoryInput.textContent = '카테고리 추가';
+                    return;
+                }
                 addCategory(categoryName)
                 .then(() => {
                     alert("카테고리가 추가되었습니다.");
