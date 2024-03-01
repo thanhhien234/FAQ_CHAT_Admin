@@ -37,7 +37,9 @@
     background-size: contain;
     background-image: url('/public/assets/icon/uncheckBox.png');
 }
-
+.file-wrapper th input[type="checkbox"] {
+    display: none;
+}
 
 .file-wrapper th:nth-child(1){
     text-align: center;
