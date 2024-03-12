@@ -12,6 +12,9 @@ async function searchChatList(page, pageSize) {
             const mobileListContainer = $(".mobile-chat-list");
             const today = new Date(Date.now());
 
+            listContainer.html("");
+            mobileListContainer.html("");
+
             res.chatRoomDaoList.forEach((chat) => {
                 let state;
                 let isToday = false
@@ -50,8 +53,12 @@ async function searchChatList(page, pageSize) {
                           <div class="header">
                             <span class="chat-time">${date}</span>
                             ${
-                                state === "읽지 않음" || "답변 대기" ?
+                                state === "읽지 않음" ?
                                     `<span class="badge unread">${state}</span>` : ""    
+                            }
+                            ${
+                                state === "답변 대기" ?
+                                    `<span class="badge no-reply">${state}</span>` : ""
                             }
                           </div>
                           <div>

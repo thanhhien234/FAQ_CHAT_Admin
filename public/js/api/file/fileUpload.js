@@ -1,9 +1,9 @@
-async function uploadFile(file, fileName) {
+async function uploadFile(file, fileName, category) {
     $('#loadingModal').modal('show');
     let formData = new FormData();
     formData.append('multipartFile', file, fileName);
     await $.ajax({
-        url: config.fileServer + "/api/auth/file?fileName=" + fileName,
+        url: config.fileServer + "/api/auth/file?fileName=" + fileName + "&category=" + category,
         type: 'POST',
         headers: {
             Authorization: "Bearer " + getCookie("accessToken")
@@ -13,7 +13,7 @@ async function uploadFile(file, fileName) {
         contentType: false,
 
         success: function (response) {
-            fileListSearch(currentPage, pageSize);
+            $("#categorySelect").change();
             $('#loadingModal').modal('hide');
         },
         error: function (err) {

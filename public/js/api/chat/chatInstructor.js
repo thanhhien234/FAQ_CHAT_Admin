@@ -7,7 +7,7 @@ async function searchChat(studentId) {
             Authorization: "Bearer " + getCookie("accessToken")
         },
         success: function (res) {
-            const container = $('.instructor-message-container');
+            const container = $('.instructor-wrapper');
             container.empty()
             let lastDate = null;
             let latestQuestionTime = null;
@@ -36,27 +36,27 @@ async function searchChat(studentId) {
                 }
 
                 if (element.isQuestion) {
-                    const questionContainer = $('<div>').addClass('question-container');
+                    const questionContainer = $('<div>').addClass('question-wrapper');
                     const questionElement = $('<div>').addClass('question').text(element.comment);
                     container.append(questionContainer.append(questionElement));
 
-                    // if the next element is an answer, add question-time-container
+                    // if the next element is an answer, add question-time-wrapper
                     const nextElement = array[index + 1];
                     if (nextElement && !nextElement.isQuestion) {
-                        const questionTimeContainer = $('<div>').addClass('question-time-container');
+                        const questionTimeContainer = $('<div>').addClass('question-time-wrapper');
                         const questionTimeElement = $('<div>').addClass('time').text(formattedTime);
                         container.append(questionTimeContainer.append(questionTimeElement));
                     }
                     latestQuestionTime = formattedTime; 
                 } else {
-                    const answerContainer = $('<div>').addClass('answer-container');
+                    const answerContainer = $('<div>').addClass('answer-wrapper');
                     const answerElement = $('<div>').addClass('answer').text(element.comment);
                     container.append(answerContainer.append(answerElement));
 
-                    // if the next element is a question, add answer-time-container
+                    // if the next element is a question, add answer-time-wrapper
                     const nextElement = array[index + 1];
                     if (nextElement && nextElement.isQuestion) {
-                        const answerTimeContainer = $('<div>').addClass('answer-time-container');
+                        const answerTimeContainer = $('<div>').addClass('answer-time-wrapper');
                         const answerTimeElement = $('<div>').addClass('time').text(formattedTime);
                         container.append(answerTimeContainer.append(answerTimeElement));
                     }
@@ -66,12 +66,12 @@ async function searchChat(studentId) {
 
             // Always show time for last element
             if (res.profStdGetElementResList.length > 0 && res.profStdGetElementResList[res.profStdGetElementResList.length - 1].isQuestion) {
-                const lastQuestionTimeContainer = $('<div>').addClass('question-time-container');
+                const lastQuestionTimeContainer = $('<div>').addClass('question-time-wrapper');
                 const lastQuestionTimeElement = $('<div>').addClass('time').text(latestQuestionTime);
                 container.append(lastQuestionTimeContainer.append(lastQuestionTimeElement));
             }
             if (res.profStdGetElementResList.length > 0 && !res.profStdGetElementResList[res.profStdGetElementResList.length - 1].isQuestion) {
-                const lastAnswerTimeContainer = $('<div>').addClass('answer-time-container');
+                const lastAnswerTimeContainer = $('<div>').addClass('answer-time-wrapper');
                 const lastAnswerTimeElement = $('<div>').addClass('time').text(latestAnswerTime);
                 container.append(lastAnswerTimeContainer.append(lastAnswerTimeElement));
             }

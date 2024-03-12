@@ -1,6 +1,6 @@
-async function fileListSearch(page, pageSize) {   //search all files
+async function categorySearch(page,pageSize,category) {   //search each category
     await $.ajax({
-        url: config.fileServer + `/api/file/all?page=${page}&pageSize=${pageSize}`,
+        url: config.fileServer + `/api/file/list?page=${page}&pageSize=${pageSize}&category=${category}`,
         type: "GET",
         headers: {
             Authorization: "Bearer " + getCookie("accessToken")
@@ -9,10 +9,7 @@ async function fileListSearch(page, pageSize) {   //search all files
             renderFileTableData(res)
         },
         error: function (err) {
-            alert('파일 조회 중 오류가 발생했습니다.');
+            alert('카테고리 조회 중 오류가 발생했습니다.');
         }
     })
 }
-
-
-

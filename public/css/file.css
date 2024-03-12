@@ -1,114 +1,181 @@
 .file-container {
-    width: 100%;
-    margin: auto;
-}
-.file-section {
     display: flex;
     flex-direction: column;
-    margin: 40px auto;
+    margin: 60px auto;
     width: 60%;
 }
 
-table {
-    width: 100%;
-}
-
-.file-container thead{
+.file-wrapper thead{
     background-color: rgba(0, 24, 50, 0.1);
-    font-size: 16px;
+    font-size: 14px;
     color: #001832;
+    border-radius: 20px;
 }
-.file-container th{
+.file-wrapper th{
     padding: 10px;
     height: 30px;
+    font-weight: normal;
+    font-size: 14px;
 }
-.file-container td {
+.file-wrapper td {
     padding: 10px;
     height: 55px;
     text-align: center;
 }
-.file-container th img {
+.file-wrapper th img {
     width: 15px; 
     height: 15px; 
 }
 
-.file-container td input[type="checkbox"] {
+.file-wrapper td input[type="checkbox"] {
     display: none;
 }
-.file-container label {
+.file-wrapper label {
     cursor: pointer;
     width: 15px;
     height: 15px;
     background-size: contain;
     background-image: url('/public/assets/icon/uncheckBox.png');
 }
+.file-wrapper th input[type="checkbox"] {
+    display: none;
+}
 
-
-.file-container th:nth-child(1){
+.file-wrapper th:nth-child(1){
     text-align: center;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     width: 8%;
 }
-.file-container th:nth-child(4){
+.file-wrapper th:nth-child(4){
+    width: 40%;
+}
+.file-wrapper th:nth-child(5){
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
-.file-container th:nth-child(2){
-    text-align: center;
+.file-wrapper td:nth-child(1){
+    width: 8%;
 }
 
-.file-container td:nth-child(2){
+.file-wrapper th:nth-child(2){
+    width: 8%;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.file-wrapper th:nth-child(3){
+    text-align: center;
+    width: 20%;
+}
+
+.file-wrapper td:nth-child(2){
     color: #000;
     font-size: 14px;
     text-align: center;
     width: 8%;
 }
-
-.file-container td:nth-child(3) {
+.file-wrapper td:nth-child(3){
+    width: 20%;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.file-wrapper .category-name {
+    border-radius: 6px;
+    padding: 2px 10px;
+    font-size: 14px;
+}
+.file-wrapper td:nth-child(4) {
     color: #000;
     font-size: 14px;
-    width: 54%;
+    width: 40%;
     text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 
-.file-container td:nth-child(4) {
+.file-wrapper td:nth-child(5) {
     color: rgba(38, 64, 93, 0.6);
     font-size: 14px;
     text-align: left;
-    width: 30%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
-.file-container tr { 
+.file-wrapper tr { 
     border-bottom: 1px solid #CAD4DF;
 }
-.file-container thead tr {
+.file-wrapper thead tr {
     border-bottom: none; 
 }
 
-/*paging button*/
-.myPaging {
-    text-align: center;
-    margin-top: 20px;
+.file-wrapper #fileTable {
+    height: 80vh;
 }
-.pageButton {
-    background-color: transparent;
-    color: #000;
+.file-wrapper #fileTable tbody{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 90%;
+    display: block;
+}
+.file-wrapper #fileTable tbody::-webkit-scrollbar {
+    display: none;
+}
+.file-wrapper #fileTable thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.file-wrapper tbody tr:last-child {
+    margin-bottom: 50px;
+}
+/*category select*/
+.category-select-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+#categorySelect::-ms-expand {
+    display: none; 
+}
+#categorySelect {
+    padding: 8px 24px 8px 8px;
     font-size: 14px;
+    background-image: url('/public/assets/icon/polygon.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 12px;
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+    appearance: none;
+    align-self: right;
     border: none;
-    text-decoration: none;
+    font-size: 12px;
+    color: #7D8C9E;
 }
-.pageButton.current {
-    text-decoration: underline;
-    font-weight: bold;
+#categorySelect option {
+    background-color: #F8FBFF; 
+    color: #26405D;
+    padding: 0 10px;
+    border: none;
+}
+#categorySelect:focus, 
+#categorySelect:active {
+    outline: none; 
 }
 
+
 @media screen and (max-width: 900px) {
-    .file-container {
+    .file-wrapper {
         display: none;
     }
-    .file-section {
+    .file-container {
         width: 100%;
     }
     

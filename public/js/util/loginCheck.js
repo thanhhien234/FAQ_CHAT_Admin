@@ -6,4 +6,7 @@ async function loginCheck() {
     }
 }
 
-loginCheck();
+loginCheck()
+    .then(() => {
+        $("#answer-menu").trigger("click"); //initially
+    });

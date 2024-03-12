@@ -8,7 +8,7 @@ async function modifyFile(fileId, name) {
             Authorization: "Bearer " + getCookie("accessToken")
         },
         success: function(response) {
-            fileListSearch(currentPage, pageSize);
+            $("#categorySelect").change();
             $('#loadingModal').modal('hide');
         },
         error: function(err) {
