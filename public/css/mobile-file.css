@@ -62,7 +62,9 @@
     background-image: url('/public/assets/icon/uncheckBox.png');
 }
 
-
+.mobile-file-wrapper th input[type="checkbox"] {
+    display: none;
+}
 
 .mobile-file-wrapper .file-info div {
     font-size: 14px;

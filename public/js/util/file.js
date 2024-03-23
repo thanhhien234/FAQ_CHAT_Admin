@@ -5,7 +5,7 @@ let file= null;
 
 function handleCheckbox(checkbox, fileName) {
     const isChecked = $(checkbox).prop("checked");
-    
+
     if (isChecked) {
         $(checkbox).next('label').css('background-image', 'url(/public/assets/icon/checkBox.png)');
         const fileId = $(checkbox).attr("id");
@@ -23,6 +23,38 @@ function handleCheckbox(checkbox, fileName) {
         checkedFileIds = checkedFileIds.filter(id => id !== fileId);
     }
 }
+
+function handleAllCheckbox() {
+    checkedFileIds = [];
+    const isChecked = $('#selectAllCheckbox').prop("checked");
+    //check thBox
+    const thCheckboxLabel1 = $('#fileTable thead input[type="checkbox"]').next('label');
+    const thCheckboxLabel2 = $('#mobile-fileTable thead input[type="checkbox"]').next('label');
+
+    if (isChecked) {
+        thCheckboxLabel1.css('background-image', 'url(/public/assets/icon/checkBox.png)');
+        thCheckboxLabel2.css('background-image', 'url(/public/assets/icon/checkBox.png)');
+    } else {
+        thCheckboxLabel1.css('background-image', 'url(/public/assets/icon/uncheckBox.png)');
+        thCheckboxLabel2.css('background-image', 'url(/public/assets/icon/uncheckBox.png)');
+    }
+    //check tdBox
+    $('#fileTable tbody input[type="checkbox"]').each(function() {
+        const fileId = $(this).attr("id");
+        $(this).prop("checked", isChecked);
+        $('#mobile-fileTable tbody #' + fileId).prop("checked", isChecked);
+        if (isChecked) {
+            $(this).next('label').click();
+            $('#mobile-fileTable tbody #' + fileId).next('label').click();
+        } else {
+            $(this).next('label').click();
+            $('#mobile-fileTable tbody #' + fileId).next('label').click();
+        }
+    });
+}
+
+
+
 
 
 //delete file
