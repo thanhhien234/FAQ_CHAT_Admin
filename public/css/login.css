@@ -41,6 +41,8 @@ html {
     font-size: 36px;
     font-weight: 600;
     margin-bottom: auto;
+    text-align: left;
+    align-self: center;
 }
 
 .login-inner #login-btn {
