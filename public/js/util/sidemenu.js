@@ -71,8 +71,8 @@ menuList.on("click", function (e) {
             mobileFileBtnContainer.removeClass("hide");
             instructorContainer.hide();
             fileContainer.show();
-            categoryAllSearch().
-            then(() => {
+            category.renderCategory()
+            .then(() => {
                 $("#categorySelect").val("all");
                 $("#categorySelect").change();
             });
