@@ -36,6 +36,18 @@
     <link rel="stylesheet" href="/public/css/mobile-menu.css">
     <link rel="stylesheet" href="/public/css/mobile-file.css">
     <link rel="stylesheet" href="/public/css/modal.css">
+    <script>
+      function handleCategoryChange() {
+        let selectElement = document.getElementById("categorySelect");
+        let selectedOption = selectElement.options[selectElement.selectedIndex];
+        let categoryName = selectedOption.value;
+        if (categoryName === "all") {
+            category.fileListSearch();
+        } else {
+            category.searchCategory(categoryName);
+        }
+      }
+    </script>
   </head>
 <body>
   <div class="main-container"> 
