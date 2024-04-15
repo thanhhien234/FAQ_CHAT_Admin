@@ -143,13 +143,3 @@ $(document).on('change', '#file-input', function () {
     }
 });
 
-//click outside modal
-$(document).on('click', function(event) {
-    const targetId = event.target.id;
-    if ($('#modifyFileModal').is(':visible') &&
-        targetId === 'file-modify-button' &&
-        targetId === 'file-add-button' &&
-        !$(event.target).closest('#modifyFileModal').length) {
-        $('#cancelBtn').click();
-    }
-});
