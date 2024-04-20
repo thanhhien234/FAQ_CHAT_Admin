@@ -11,8 +11,6 @@ class Category {
           type: "POST",
           headers: {
             Authorization: "Bearer " + getCookie("accessToken")
-          },
-          succcess: function (res) {
           }
         })
     }
@@ -23,8 +21,6 @@ class Category {
           type: "PATCH",
           headers: {
             Authorization: "Bearer " + getCookie("accessToken")
-          },
-          success: function (res) {
           }
         })
     }
@@ -35,8 +31,6 @@ class Category {
           type: "DELETE",
           headers: {
             Authorization: "Bearer " + getCookie("accessToken")
-          },
-          success: function (res) {
           },
           error: function(xhr) {
             if (xhr.status === 400) {
