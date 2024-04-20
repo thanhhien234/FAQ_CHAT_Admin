@@ -15,7 +15,10 @@ let mobileActiveList = $(".mobile-menu-container > .active");
 const mobileFileBtnContainer = $(".mobile-file-button-container");
 
 // Initialize
-//searchChatList(0, 20);
+$(document).ready(function() {
+    $("#answer-menu").click();
+});
+
 
 toggleBtn.on("click", function () {
     if (sideBar.hasClass('close')) {
@@ -57,7 +60,7 @@ menuList.on("click", function (e) {
                 chatList.css("display", "block");
             }, 500);
             sideBar.addClass("chat-mode");
-            searchChatList(0, 20);
+            chat.renderChatList(0, 20);
             instructorContainer.show();
             instructorContainer.scrollTop(instructorContainer[0].scrollHeight); //scroll to bottom
             fileContainer.hide();
@@ -70,9 +73,9 @@ menuList.on("click", function (e) {
             fileMenuBtn.removeClass("hide");
             mobileFileBtnContainer.removeClass("hide");
             instructorContainer.hide();
-            fileContainer.show();
             category.renderCategory()
             .then(() => {
+                fileContainer.show();
                 $("#categorySelect").val("all");
                 $("#categorySelect").change();
             });
