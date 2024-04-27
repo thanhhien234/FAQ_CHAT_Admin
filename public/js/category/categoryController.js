@@ -36,7 +36,15 @@ $(document).on('click', '#categoryCancelBtn', function() {
     $('#categoryModal').modal('hide');
 });
 
-
+$("#categorySelect").on("change", function() {
+    let selectedOption = this.options[this.selectedIndex];
+    let categoryName = selectedOption.value;
+    if (categoryName === "all") {
+      category.fileListSearch();
+    } else {
+      category.searchCategory(categoryName);
+    }
+});
 
 $(window).resize(function() {
     if ($(window).width() < 900) { 
