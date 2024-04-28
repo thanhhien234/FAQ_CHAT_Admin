@@ -1,7 +1,8 @@
+const file = new File();
 //select file
 let checkedFileIds = [];
 let firstFilename = null;
-let file= null;
+let lastFile= null;
 
 function handleCheckbox(checkbox, fileName) {
     const isChecked = $(checkbox).prop("checked");
@@ -60,7 +61,7 @@ function handleAllCheckbox() {
 //delete file
 $(document).on('click', '#file-remove-button', function() {
     if (checkedFileIds.length > 0) {
-        deleteFile(checkedFileIds);
+        file.deleteFile(checkedFileIds);
         checkedFileIds = [];
     } else {
         alert("파일을 선택해주세요.")
@@ -85,19 +86,19 @@ $(document).on('click', '#file-modify-button', function() {
 $(document).on('click', '#saveChangesBtn', function() {
     const newFileName = $('#newFileNameInput').val();
     if (checkedFileIds.length === 1) {
-        modifyFile(checkedFileIds[0], newFileName);
+        file.modifyFile(checkedFileIds[0], newFileName);
         $('#modifyFileModal').modal('hide');
         checkedFileIds = [];
     }
     else{
         //select category
-        const selectedCategory = $('.category-modify-item-container.selected').text();
+        const selectedCategory = $('.category-modify-item-container.selected').text().trim();
         if (!selectedCategory) {
             alert("카테고리를 선택해주세요.");
             return;
         }
-        uploadFile(file, newFileName, selectedCategory);
-        categoryAllSearch();
+        file.uploadFile(lastFile, newFileName, selectedCategory);
+        category.renderCategory();
         $('#modifyFileModal').modal('hide');
     }
     $('#file-input').val(''); 
@@ -107,7 +108,7 @@ $(document).on('click', '#cancelBtn', function() {
     $('#modifyFileModal').modal('hide');
     $('#file-input').val(''); 
     $('.category-modify-item-container').removeClass('selected');
-    file = null;
+    lastFile = null;
 }); 
 $(document).on('click', '#newFileNameInput', function() {
     $('#newFileNameInput').css('color', '#001832');
@@ -132,10 +133,9 @@ $(document).on('click', '#file-add-button', function () {
     $('.category-container').show();
 });
 $(document).on('change', '#file-input', function () {
-    const fileInput = this;
-    file = fileInput.files[0];
+    lastFile = this.files[0];
     if (file) {
-        const fileName = file.name;
+        const fileName = lastFile.name;
         $('#newFileNameInput').val(fileName); 
         $('#modifyFileModal').modal('show'); 
     } else {
@@ -143,13 +143,3 @@ $(document).on('change', '#file-input', function () {
     }
 });
 
-//click outside modal
-$(document).on('click', function(event) {
-    const targetId = event.target.id;
-    if ($('#modifyFileModal').is(':visible') &&
-        targetId === 'file-modify-button' &&
-        targetId === 'file-add-button' &&
-        !$(event.target).closest('#modifyFileModal').length) {
-        $('#cancelBtn').click();
-    }
-});

@@ -1,5 +1,7 @@
-let currentStudentId = null; // used in chatting.js
+const chat = new Chat();
 
+
+//select studentChat
 $(".main-content").hide();
 let lastClicked = null;
 $(document).on('click', '.list-inner', function() {
@@ -13,7 +15,7 @@ $(document).on('click', '.list-inner', function() {
         currentStudentId = chatStudentId
         $(".main-content .name").text(`${chatName} (${chatStudentId})`);
         $(".main-content").show();
-        searchChat(chatStudentId)
+        chat.renderChatContent(chatStudentId)
         lastClicked = currentClicked;
     }
 });
@@ -21,4 +23,17 @@ $(document).on('click', '.list-inner', function() {
 $(".back-arrow").click(() => {
     $(".main-content").hide();
 })
+
+//chatting
+$("#submit").on("click", function () {
+    chat.sendMessage(currentStudentId);
+    $("#messageInput").val("");
+});
+$("#messageInput").on("keydown", function (e) {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        $("#submit").click();
+    }
+});
+
 
