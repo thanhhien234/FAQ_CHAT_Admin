@@ -1,4 +1,4 @@
-async function authRegister(studentId, name, email) { 
+async function authRegister(studentId, email) { 
     await $.ajax({
         url: config.authServer +'/api/auth/register',
         type: 'POST',
@@ -7,7 +7,6 @@ async function authRegister(studentId, name, email) {
         },
         data: JSON.stringify({
             studentId: studentId,
-            name: name,
             email: email
         }),
         contentType: 'application/json; charset=utf-8',
@@ -16,7 +15,7 @@ async function authRegister(studentId, name, email) {
             location.href = "/";
         },
         error: function() {
-            alert("관리자에게 문의해주세요.")
+            alert("서버오류입니다. 잠시 후 다시 시도해주세요.");
         }
     });
 }

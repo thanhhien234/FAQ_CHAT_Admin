@@ -36,14 +36,9 @@
       <div class="form-inner">
         <h3 class="title">회원정보 입력</h3>
         <form>
-          <div class="name-box">
-            <label for="name-input">이름</label>
-            <input id="name-input" type="text" placeholder="나학생">
-            <img class="input-check" src="/public/assets/icon/Check_active.png" alt="">
-          </div>
           <div class="student-num-box">
             <label for="student-num-input">학번</label>
-            <input id="student-num-input" type="text" placeholder="2022123456">
+            <input id="student-num-input" type="text" placeholder="2022123456" maxlength="10">
             <img class="input-check" src="/public/assets/icon/Check_active.png" alt="">
           </div>
           <div class="email-box">
@@ -54,23 +49,61 @@
           <div class="code-box">
             <label for="code-input">인증번호</label>
             <div class="code-input-box">
-              <input id="code-input" type="text" placeholder="인증번호 6자리" maxlength="6">
+              <input id="code-input" type="number" placeholder="인증번호 6자리" maxlength="6" disabled>
               <span class="time-remain"></span>
             </div>
             <button id="send-code-btn">
               <span class="spinner-border spinner-border-sm" aria-hidden="true" style="display: none; vertical-align: middle"></span>
               <span>인증번호 보내기</span>
             </button>
+
             <p class="code-description">위의 학교 이메일로 인증번호가 발송됩니다.</p>
           </div>
-          <div class="agree-box">
-            <input id="agree-check" type="checkbox">
-            <label for="agree-check">
-              <img src="/public/assets/icon/Check.png" alt="">
-              모든 내용을 확인하였으며, 개인정보 수집에 동의합니다.
-            </label>
+          <div class="information-box">
+            <div class="information-box-title">
+              <p>개인정보 수집·이용 동의</p>
+              <img src="/public/assets/icon/expand_more_down.png" alt="">      
+            </div>
+            <div class="information-box-content">
+              <p>○○○은 ○○○서비스 회원가입, 고객상담 및 AS, 고지사항 전달 등을 위해 아래와 같이 정보를 수집합니다.</p>
+              <table class="info-table">
+                <thead>
+                  <tr>
+                    <th>수집 목적</th>
+                    <th>수집 항목</th>
+                    <th>수집 근거</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>회원 식별 및 회원제 서비스 제공</td>
+                    <td>아이디, 비밀번호</td>
+                    <td rowspan="3">개인정보 보호법 제 15조 제 1항</td>
+                  </tr>
+                  <tr>
+                    <td>고객 상담 및 AS 관리</td>
+                    <td>전화번호</td>
+                  </tr>
+                  <tr>
+                    <td>서비스 변경사항 및 고지사항 전달</td>
+                    <td>이메일</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>귀하는 ○○○의 서비스 이용에 필요한 최소한의 개인정보 수집·이용에 동의하지 않을 수 있으나, 동의를 거부할 경우 회원제 서비스 이용이 불가능합니다.</p>
+            </div>
+            <div class="agree-box">
+              <input id="agree-check" type="checkbox">
+              <label for="agree-check">
+                위 개인정보 수집·이용에 동의합니다
+                <img src="/public/assets/icon/Check.png" alt="">
+              </label>
+            </div>
           </div>
-          <button id="submit-btn" type="submit">가입</button>
+          <div class="button-wrapper">
+            <button id="cancel-btn" type="button">취소</button>
+            <button id="submit-btn" type="submit">가입</button>
+          </div>
         </form>
       </div>
     </div>
@@ -89,7 +122,10 @@
           crossorigin="anonymous"></script>
   <script src="/public/js/config.js"></script>
   <script src="/public/js/util/cookieManage.js"></script>
+  <script src="/public/js/api/auth/reissue.js"></script>
+  <script src="/public/js/util/loginCheck.js"></script>
   <script src="/public/js/api/auth/sendEmailVeriCode.js"></script>
+  <script src="/public/js/api/auth/authRegister.js"></script>
   <script src="/public/js/api/auth/verifyCode.js"></script>
   <script src="/public/js/util/register.js"></script>
 </body>
