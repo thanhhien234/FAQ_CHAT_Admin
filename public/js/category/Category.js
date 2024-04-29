@@ -11,6 +11,10 @@ class Category {
           type: "POST",
           headers: {
             Authorization: "Bearer " + getCookie("accessToken")
+          },
+          error: function(err) {
+            alert("서버 오류입니다. 잠시 후 다시 시도해주세요.");
+            $('.spinner-container').css('display', 'none');
           }
         })
     }
@@ -36,7 +40,11 @@ class Category {
             if (xhr.status === 400) {
               alert("파일 있는 카테고리를 삭제할 수 없습니다");
               $('.spinner-container').css('display', 'none');
-            } 
+            }
+            else {
+              alert("서버 오류입니다. 잠시 후 다시 시도해주세요.");
+              $('.spinner-container').css('display', 'none');
+            }
           }
         })
     }
@@ -154,9 +162,10 @@ class Category {
                 this.renderCategorySelect();
                 this.renderCategoryItemsContainer();
                 this.renderCategoryModifyItemsContainer();
+                $("#categorySelect").change();
             },
             error: function (err) {
-                alert('카테고리 조회 중 오류가 발생했습니다.');
+                alert('서버 오류입니다. 잠시 후 다시 시도해주세요.');
             }
         })
     }
@@ -199,7 +208,6 @@ class Category {
                 const categoryName = button.closest('.category-item-container').querySelector('.category-text-name').textContent;
                 this.deleteCategory(categoryName)
                 .then(() => {
-                    alert("카테고리가 삭제되었습니다.");
                     this.renderCategory();
                     $('.spinner-container').css('display', 'none');
                 });
@@ -231,18 +239,18 @@ class Category {
                 const existingCategoryNames = this.categoryData.map(item => item.categoryName.trim());
                 if (existingCategoryNames.includes(categoryName)) {
                     alert("카테고리의 이름이 중복되었습니다");
-                    addCategoryInput.textContent = '카테고리 추가';
+                    addCategoryInput.textContent = '';
                     return;
                 }
                 this.addCategory(categoryName)
                 .then(() => {
-                    alert("카테고리가 추가되었습니다.");
                     this.renderCategory();
                     $('.spinner-container').css('display', 'none');
                 });
             }
             else {
                 addCategoryInput.textContent = '카테고리 추가';
+                addCategoryInput.blur();
             }
         }.bind(this));
         addCategoryInput.addEventListener('keypress', function(event) {
