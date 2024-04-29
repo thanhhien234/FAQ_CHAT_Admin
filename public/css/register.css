@@ -85,7 +85,7 @@ html {
     width: 50%;
     display: inline-block;
 }
-input[type="number"] {
+input[type="text"] {
     background-color: transparent
 }
 
