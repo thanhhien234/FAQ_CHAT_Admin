@@ -35,11 +35,16 @@ html, body {
 /* student-wrapper */
 .student-wrapper {
     background: linear-gradient(#FFFFFF, 40%, #E6E8EB);
-    text-align: center;
-    margin: 0 auto 0 auto;
     padding: 10px;
-    width: 100%;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.student-wrapper img {
+    width: 14px;
+    height: auto;
+    margin-right: 5px;
 }
 .mobile-student-wrapper{
   display: none;

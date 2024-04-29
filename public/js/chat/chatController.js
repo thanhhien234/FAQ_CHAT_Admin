@@ -10,10 +10,9 @@ $(document).on('click', '.list-inner', function() {
         $(".main-content").hide();
         lastClicked = null;
     } else {
-        const chatName = $(this).closest('li').data('name');
         const chatStudentId = $(this).closest('li').data('studentid');
         currentStudentId = chatStudentId
-        $(".main-content .name").text(`${chatName} (${chatStudentId})`);
+        $(".main-content .name").text(`${chatStudentId}`);
         $(".main-content").show();
         chat.renderChatContent(chatStudentId)
         lastClicked = currentClicked;
