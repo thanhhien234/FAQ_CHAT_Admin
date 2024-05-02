@@ -1,4 +1,3 @@
-const nameInput = $("#name-input");
 const studentNumInput = $("#student-num-input");
 const emailInput = $("#email-input");
 const codeInput = $("#code-input");
@@ -8,9 +7,12 @@ const agreeCheck = $("#agree-check");
 const agreeCheckLabel = $(".agree-box label");
 const checkImg = $(".agree-box label img");
 const submitBtn = $("#submit-btn");
+const cancelBtn = $("#cancel-btn");
 const sendLoading = $("#send-code-btn .spinner-border");
+const informationTitle = $(".information-box-title");
+const informationContent = $(".information-box-content");
+const agreeBox = $(".agree-box");
 
-let nameState = false;
 let studentNumState = false;
 let emailState = false;
 let codeState = false;
@@ -33,17 +35,6 @@ agreeCheckLabel.click(function () {
 })
 
 agreeCheck.click();
-
-nameInput.on("change", function () {
-    const checkImg = $(".name-box .input-check");
-    if(nameInput.val().length > 0) {
-        nameState = true;
-        checkImg.show();
-    } else {
-        nameState = false;
-        checkImg.hide();
-    }
-})
 
 studentNumInput.on("change", function () {
     const checkImg = $(".student-num-box .input-check");
@@ -68,7 +59,7 @@ emailInput.on("change", function () {
 })
 
 codeInput.on("change", function () {
-    codeState = codeInput.val().length === 0;
+    codeState = codeInput.val().length !== 0;
 })
 
 sendBtn.click(function (e) {
@@ -93,11 +84,13 @@ sendBtn.click(function (e) {
                         leftTime -= 1000;
                     }
                 }, 1000);
+                codeInput.prop('disabled', false);
+                codeInput.focus();
             })
             .catch(() => {
                 alert("이메일 전송을 실패했습니다.");
                 sendLoading.css("display", "none");
-            });
+        });
     } else {
         alert("학교 이메일을 입력해주세요.");
     }
@@ -105,9 +98,7 @@ sendBtn.click(function (e) {
 
 submitBtn.click(function (e) {
     e.preventDefault();
-    if (!nameState) {
-        alert("이름을 입력해주세요.");
-    } else if (!studentNumState) {
+    if (!studentNumState) {
         alert("학번을 입력해주세요.");
     } else if (!emailState) {
         alert("학교 이메일을 입력해주세요.");
@@ -117,16 +108,22 @@ submitBtn.click(function (e) {
         alert("약관에 동의해주세요.");
     } else {
         const studentId = studentNumInput.val();
-        const name = nameInput.val();
         const email = emailInput.val();
         const code = codeInput.val();
 
-        verifyCode(email, code)
-            .then(() => {
-                authRegister(studentId, name, email);
-            })
-            .catch(() => {
-                alert("잘못된 인증번호입니다.")
-            });
+        verifyCode(email, code, studentId);
     }
+});
+cancelBtn.click(function (e) {
+    e.preventDefault();
+    deleteCookie("accessToken");
+    deleteCookie("refreshToken");
+    deleteCookie("isActive");
+    location.href = "/login.html";
+});
+
+informationTitle.click(function () {
+    $(this).toggleClass('active');
+    informationContent.toggle();
+    agreeBox.toggle();
 });

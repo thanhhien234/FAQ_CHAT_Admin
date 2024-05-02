@@ -9,6 +9,10 @@ html {
     padding: 20px;
 }
 
+.input-check {
+    display: none;
+}
+
 .form-container {
     width: 100%;
     max-width: 500px;
@@ -16,6 +20,7 @@ html {
     border-radius: 20px;
     background: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 50px;
@@ -25,7 +30,7 @@ html {
     width: 100%;
     max-width: 340px;
     height: 100%;
-    max-height: 500px;
+    max-height: 70vh;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -35,7 +40,7 @@ html {
     text-align: left;
     font-size: 20px;
     font-weight: 600;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .form-inner form {
@@ -80,6 +85,9 @@ html {
     width: 50%;
     display: inline-block;
 }
+input[type="text"] {
+    background-color: transparent
+}
 
 .code-box .time-remain {
     position: absolute;
@@ -87,7 +95,6 @@ html {
     color: #034EA2;
     font-size: 10px;
     font-weight: 400;
-    display: none;
 }
 
 .code-box .code-description {
@@ -113,25 +120,64 @@ html {
     background: #034EA2;
     color: white;
 }
-
-.agree-box {
-    margin-top: 24px;
+.information-box {
+    margin-top: 10px;
     margin-bottom: auto !important;
+}
+.information-box-title{
     display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.information-box-title p{
+    color: #9399A0;
+    font-size: 14px;
+    margin: 0;
+}
+.active p{
+    color: #001832;
+}
+.active img{
+    content: url('/public/assets/icon/expand_more_up.png');
+}
+.information-box-title img {
+    width: 10px;
+    height: auto;
+    margin-left: 5px;
+}
+.information-box-content{
+    text-align: left;
+    display: none;
+    height: 18vh;
+    overflow-y: scroll;
+}
+.information-box-content::-webkit-scrollbar {
+    display: none;
+}
+.information-box-content p{
+    margin: 0;
+    font-size: 12px;
+}
+.agree-box {
+    float: right;
+    margin-top: 10px;
+    display: none;
 }
 
 .agree-box #agree-check {
     display: none;
 }
 
-.agree-box label.checked {
-    color: #001832;
-}
-
 .agree-box p {
     font-size: 14px;
     font-weight: 400;
     color: #9399A0;
+}
+
+.button-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 #submit-btn {
@@ -141,10 +187,40 @@ html {
     font-weight: 400;
     border: none;
     border-radius: 30px;
+    flex: 1;
+    margin-left: 5px;
+    font-size: 14px;
 }
 
-.input-check {
-    display: none;
+#cancel-btn {
+    background-color: #E6E8EB;
+    color: #001832;
+    padding: 12px;
+    font-weight: 400;
+    border: none;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+.info-table {
+    margin: 10px 0;
+    color: #717B85;
+    font-size: 10px;
+}
+.info-table th, tr, td {
+    border: 1px solid #E6E8EB;
+    font-weight: 400;
+}
+.info-table th {
+    background-color: #F1F2F4;
+    padding: 5px;
+    text-align: center;
+    width: 33.33%;
+}
+.info-table td {
+    padding: 5px 8px;
 }
 
 @media screen and (max-width: 900px) {

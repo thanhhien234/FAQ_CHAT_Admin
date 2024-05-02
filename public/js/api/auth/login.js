@@ -9,15 +9,15 @@ if (!!loginCode) {
         success: function (res) {
             setCookie('accessToken', res.accessToken, accessTime);
             setCookie('refreshToken', res.refreshToken, refreshTime);
-            if (res.registerStateEnum === "INACTIVE") {
-                alert("관리자에게 사용자 등록 요청해주세요.");
-                window.location.href = '/';
-            } else
+            setCookie('isActive', res.registerStateEnum, accessTime);
+            if (res.registerStateEnum === "INACTIVE")
+                window.location.href = '/register.html';
+            else
                 window.location.href = '/';
         },
         error: function (err) {
             alert("관리자에게 문의해주세요.");
-            location.replace("/login.html");
+            location.replace('/login.html');
         }
     })
 } else {

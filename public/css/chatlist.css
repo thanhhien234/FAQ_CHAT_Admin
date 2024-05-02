@@ -71,6 +71,17 @@
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 3px;
+    margin: 0;
+}
+.aside-chat-lists > li .user-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.aside-chat-lists > li .user-wrapper img {
+    width: 14px;
+    height: auto;
+    margin-right: 3px;
 }
 
 .aside-chat-lists > li .content {
@@ -125,6 +136,14 @@
     font-size: 14px;
     font-weight: 500;
     margin-right: auto;
+}
+.mobile-chat-list li h5 {
+    margin: 0;
+}
+.mobile-chat-list > li img {
+    width: 14px;
+    height: auto;
+    margin-right: 5px;
 }
 
 .mobile-chat-list li .chat-time {

@@ -1,6 +1,7 @@
 const category = new Category();
 
 $(document).on('click', '#file-category-button', function() {
+    $('.add-category-input').text('카테고리 추가');
     $('.category-text-input').val('');
     $('#changeCategorySelect').val('');
     $('#categoryModal').modal('show')
@@ -23,16 +24,18 @@ $(document).on('click', '#categorySaveChangesBtn', function() {
         alert("카테고리가 수정되었습니다.");
         category.renderCategory();
         $('.spinner-container').css('display', 'none');
+        $('.category-text-input').val('');
+        // $('#categoryModal').modal('hide')
+    })
+    .catch((err) => {
+        alert("카테고리 수정 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
+        $('.spinner-container').css('display', 'none');
         $('#categoryModal').modal('hide')
     });
 });
 
 /* 취소 button*/
 $(document).on('click', '#categoryCancelBtn', function() {
-    const addCategoryInput = $('.add-category-input');
-    if (addCategoryInput) {
-        addCategoryInput.textContent = '카테고리 추가';
-    }
     $('#categoryModal').modal('hide');
 });
 

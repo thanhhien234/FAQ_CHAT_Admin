@@ -53,7 +53,7 @@ class Chat{
                     }
     
                     listContainer.append(`
-                        <li ${isToday ? "class='today'" : "" } data-name ="${chat.name}" data-studentid="${chat.student_id}">
+                        <li ${isToday ? "class='today'" : "" } data-studentid="${chat.student_id}">
                             <div class="list-inner">
                               <div class="header">
                                 <span class="chat-time">${date}</span>
@@ -67,7 +67,10 @@ class Chat{
                                 }
                               </div>
                               <div>
-                                <h5 class="user">${chat.name}(${chat.student_id})</h5>
+                                <div class="user-wrapper">
+                                    <img src="/public/assets/icon/polygon_white.png" alt="">
+                                    <h5 class="user">${chat.student_id}</h5>
+                                </div>
                                 <p class="content">
                                   ${chat.comment}
                                 </p>
@@ -77,10 +80,11 @@ class Chat{
                     `)
     
                     mobileListContainer.append(`
-                        <li ${isToday ? "class='today'" : "" } data-name ="${chat.name}" data-studentid="${chat.student_id}">
+                        <li ${isToday ? "class='today'" : "" } data-studentid="${chat.student_id}">
                             <div class="list-inner">
                                 <div class="header">
-                                    <h5 class="user">${chat.name}(${chat.student_id})</h5>
+                                    <img src="/public/assets/icon/polygon_black.png" alt="">
+                                    <h5 class="user">${chat.student_id}</h5>
                                     <span class="chat-time">${date}</span>
                                     ${
                                         state === "읽지 않음" ? 
