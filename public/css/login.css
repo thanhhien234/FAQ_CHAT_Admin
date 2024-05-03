@@ -24,6 +24,7 @@ html {
     border-radius: 20px;
     background: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 50px;
@@ -57,6 +58,18 @@ html {
     animation: blink 1s step-end infinite;
 }
 
+.mail-btn {
+    margin-top: 40px;
+}
+.mail-btn a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #7D8C9E;
+    cursor: pointer;
+}
+.mail-btn a:hover {
+    color: #001832;
+}
 @media screen and (max-width: 900px) {
     html {
         background: none;
