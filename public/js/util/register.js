@@ -77,7 +77,9 @@ sendBtn.click(function (e) {
                 leftTimer = setInterval(function () {
                     if (leftTime < 0) {
                         clearInterval(leftTimer);
-                        timeRemain.html(`0분 0초`)
+                        timeRemain.html(`0분 0초`);
+                        alert('시간이 초과되었습니다. 다시 시도해주세요.');
+                        codeInput.prop('disabled', true);
                     } else {
                         let min = Math.floor(leftTime / (60 * 1000));
                         let sec = Math.floor(leftTime % ((60 * 1000)) / 1000);
