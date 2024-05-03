@@ -90,10 +90,14 @@ sendBtn.click(function (e) {
                 codeInput.prop('disabled', false);
                 codeInput.focus();
             })
-            .catch(() => {
-                alert("이메일 전송을 실패했습니다.");
+            .catch((xhr) => {
+                if (xhr.status === 409) {
+                    alert("이미 가입된 이메일입니다. 다른 이메일을 사용해주세요.");
+                } else {
+                    alert("이메일 전송을 실패했습니다.");
+                }
                 sendLoading.css("display", "none");
-        });
+            });
     } else {
         alert("학교 이메일을 입력해주세요.");
     }
