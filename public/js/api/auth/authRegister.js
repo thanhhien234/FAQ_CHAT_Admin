@@ -12,7 +12,9 @@ async function authRegister(studentId, email) {
         contentType: 'application/json; charset=utf-8',
         
         success: function(res) {
-            location.href = "/";
+            reissue().then(() => {
+                location.href = "/";
+            })
         },
         error: function() {
             alert("서버오류입니다. 잠시 후 다시 시도해주세요.");
