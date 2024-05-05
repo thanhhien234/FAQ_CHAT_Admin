@@ -231,6 +231,10 @@ input[type="text"] {
     padding: 5px 8px;
 }
 
+.form-inner form label.checked {
+    color: #001832;
+}
+
 @media screen and (max-width: 900px) {
     html {
         background: none;
