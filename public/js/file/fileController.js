@@ -3,6 +3,7 @@ const file = new File();
 let checkedFileIds = [];
 let firstFilename = null;
 let lastFile= null;
+let fileInfos = [];
 
 function handleCheckbox(checkbox, fileName) {
     const isChecked = $(checkbox).prop("checked");
@@ -14,6 +15,7 @@ function handleCheckbox(checkbox, fileName) {
         $(`#mobile-fileTable tbody #${fileId}`).next('label').css('background-image', 'url(/public/assets/icon/checkBox.png)');
         if (!checkedFileIds.includes(fileId)) {
             checkedFileIds.push(fileId);
+            fileInfos.push({id: fileId, name: fileName});
         }
         firstFilename = fileName
     } else {
@@ -22,6 +24,7 @@ function handleCheckbox(checkbox, fileName) {
         $(`#mobile-fileTable tbody #${fileId}`).prop("checked", false);
         $(`#mobile-fileTable tbody #${fileId}`).next('label').css('background-image', 'url(/public/assets/icon/uncheckBox.png)');
         checkedFileIds = checkedFileIds.filter(id => id !== fileId);
+        fileInfos = fileInfos.filter(item => item.id !== fileId);
     }
 }
 
@@ -76,7 +79,7 @@ $(document).on('click', '#file-modify-button', function() {
     $('.modifyFileFormText').text('파일 수정하기');
     $('.category-container').hide();
     if (checkedFileIds.length === 1) {
-        $('#newFileNameInput').val(firstFilename);
+        $('#newFileNameInput').val(fileInfos.find(item => item.id === checkedFileIds[0]).name);
         $('#newFileNameInput').css('color', '#929FAD');
         $('#modifyFileModal').modal('show')
     } else {

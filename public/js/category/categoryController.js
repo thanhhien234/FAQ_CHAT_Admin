@@ -15,7 +15,7 @@ $(document).on('click', '#categorySaveChangesBtn', function() {
         $('#categoryModal').modal('hide');
         return;
     }
-    if (Object.keys(category.categoryData).includes(newCategoryName)) {
+    if (!!(category.categoryData.find(item => item.categoryName === newCategoryName))) {
         alert("카테고리 이름이 중복되었습니다. 다시 입력해주세요");
         return;
     }
