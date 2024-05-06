@@ -131,6 +131,8 @@ $(document).ready(function() {
 
 //add file
 $(document).on('click', '#file-add-button', function () {
+    lastFile = null;
+    checkedFileIds = [];
     $('#file-input').click();
     $('.modifyFileFormText').text('파일 업로드하기');
     $('.category-container').show();
