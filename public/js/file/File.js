@@ -21,7 +21,7 @@ class File {
   async uploadFile(file, fileName, category) {
     $('#loadingModal').modal('show');
     let formData = new FormData();
-    formData.append('multipartFile', file, fileName);
+    formData.append('multipartFile', file, file.name, fileName);
     await $.ajax({
         url: config.fileServer + "/api/auth/file?fileName=" + fileName + "&category=" + category,
         type: 'POST',
