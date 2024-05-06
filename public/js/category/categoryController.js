@@ -11,7 +11,7 @@ $(document).on('click', '#file-category-button', function() {
 $(document).on('click', '#categorySaveChangesBtn', function() {
     const newCategoryName = $('.category-text-input').val().trim();
     const oldCategoryName = $('#changeCategorySelect').val();
-    if (!newCategoryName || oldCategoryName === "") {
+    if (!newCategoryName || !oldCategoryName) {
         $('#categoryModal').modal('hide');
         return;
     }
