@@ -1,5 +1,5 @@
 .file-container {
-    display: flex;
+    display: none;
     flex-direction: column;
     margin: 60px auto;
     width: 60%;
