@@ -66,10 +66,10 @@ menuList.on("click", function (e) {
                 chatList.css("display", "block");
             }, 500);
             sideBar.addClass("chat-mode");
-            chat.renderChatList(0, 20);
-            instructorContainer.show();
+            chat.renderChatList(0, config.chatListSize);
+            instructorContainer.css("display", "flex");
             instructorContainer.scrollTop(instructorContainer[0].scrollHeight); //scroll to bottom
-            fileContainer.hide();
+            fileContainer.css("display", "none");
             break;
         case "files-menu":
             $("#mobile-files-menu").addClass("active");
@@ -78,10 +78,10 @@ menuList.on("click", function (e) {
             fileMenus.removeClass("hide");
             fileMenuBtn.removeClass("hide");
             mobileFileBtnContainer.removeClass("hide");
-            instructorContainer.hide();
+            instructorContainer.css("display", "none");
             category.renderCategory()
             .then(() => {
-                fileContainer.show();
+                fileContainer.css("display", "flex");
                 $("#categorySelect").val("all");
                 $("#categorySelect").change();
             });

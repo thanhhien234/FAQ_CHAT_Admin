@@ -11,9 +11,9 @@ html, body {
     align-items: center;
 }
 .main-content-container {
-    display: flex;
+    display: none;
     flex-direction: column;
-    height: 100vh;
+    height: 100dvh;
     padding: 5%;
     margin: 0 auto;
     width: 100%;
