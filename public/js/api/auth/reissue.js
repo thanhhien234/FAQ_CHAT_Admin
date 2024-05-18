@@ -11,8 +11,6 @@ async function reissue() {
             setCookie('isActive', res.registerStateEnum,  2 * 60);
             if (res.registerStateEnum === "INACTIVE") {
                 location.replace("/register.html");
-            } else {
-                location.reload();
             }
         },
         error: function (err) {
