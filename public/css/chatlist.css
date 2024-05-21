@@ -8,7 +8,18 @@
 }
 
 .aside-chat-lists::-webkit-scrollbar {
+    background-color: #273b53;
+    border-radius: 20px;
+    width: 10px;
+}
+
+.aside-chat-lists::-webkit-scrollbar-track {
     display: none;
+}
+
+.aside-chat-lists::-webkit-scrollbar-thumb {
+    background-color: #4f5d71;
+    border-radius: 20px;
 }
 
 .aside-chat-lists > li {

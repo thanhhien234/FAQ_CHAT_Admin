@@ -43,26 +43,13 @@
         <form>
           <div class="student-num-box">
             <label for="student-num-input">학번</label>
-            <input id="student-num-input" type="text" placeholder="2022123456" maxlength="10">
+            <input id="student-num-input" type="text" placeholder="5800000" maxlength="10">
             <img class="input-check" src="/public/assets/icon/Check_active.png" alt="">
           </div>
           <div class="email-box">
             <label for="email-input">학교 이메일</label>
             <input id="email-input" type="email" placeholder="example@stu.kmu.ac.kr">
             <img class="input-check" src="/public/assets/icon/Check_active.png" alt="">
-          </div>
-          <div class="code-box">
-            <label for="code-input">인증번호</label>
-            <div class="code-input-box">
-              <input id="code-input" type="text" placeholder="인증번호 6자리" maxlength="6" disabled>
-              <span class="time-remain"></span>
-            </div>
-            <button id="send-code-btn">
-              <span class="spinner-border spinner-border-sm" aria-hidden="true" style="display: none; vertical-align: middle"></span>
-              <span>인증번호 보내기</span>
-            </button>
-
-            <p class="code-description">위의 학교 이메일로 인증번호가 발송됩니다.</p>
           </div>
           <div class="information-box">
             <div class="information-box-title">
@@ -129,9 +116,7 @@
   <script src="/public/js/util/cookieManage.js"></script>
   <script src="/public/js/api/auth/reissue.js"></script>
   <script src="/public/js/util/loginCheck.js"></script>
-  <script src="/public/js/api/auth/sendEmailVeriCode.js"></script>
   <script src="/public/js/api/auth/authRegister.js"></script>
-  <script src="/public/js/api/auth/verifyCode.js"></script>
   <script src="/public/js/util/register.js"></script>
 </body>
 </html>

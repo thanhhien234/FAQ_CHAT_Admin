@@ -16,8 +16,15 @@ async function authRegister(studentId, email) {
                 location.href = "/";
             })
         },
-        error: function() {
-            alert("서버오류입니다. 잠시 후 다시 시도해주세요.");
+        error: function(jqXHR, err, thrown) {
+            if (jqXHR.status == 409) {
+                alert(jqXHR.responseText);
+            } else {
+                alert('서버 오류입니다.');
+                deleteCookie('accessToken');
+                deleteCookie('refreshToken');
+                location.href = '/login.html';
+            }
         }
     });
 }
