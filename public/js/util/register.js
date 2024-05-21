@@ -59,66 +59,19 @@ emailInput.on("change", function () {
     }
 })
 
-codeInput.on("change", function () {
-    codeState = codeInput.val().length !== 0;
-})
-
-sendBtn.click(function (e) {
-    e.preventDefault();
-    if (emailState) {
-        sendLoading.css("display", "inline-block");
-        sendVerificationCode(emailInput.val())
-            .then(() => {
-                sendLoading.css("display", "none");
-                timeRemain.show();
-                $(".code-box .code-description").show();
-                leftTime = 10 * 60 * 1000;
-                sendBtn.addClass(".active");
-                leftTimer = setInterval(function () {
-                    if (leftTime < 0) {
-                        clearInterval(leftTimer);
-                        timeRemain.html(`0분 0초`);
-                        alert('시간이 초과되었습니다. 다시 시도해주세요.');
-                        codeInput.prop('disabled', true);
-                    } else {
-                        let min = Math.floor(leftTime / (60 * 1000));
-                        let sec = Math.floor(leftTime % ((60 * 1000)) / 1000);
-                        timeRemain.html(`${min}분 ${sec}초`)
-                        leftTime -= 1000;
-                    }
-                }, 1000);
-                codeInput.prop('disabled', false);
-                codeInput.focus();
-            })
-            .catch((xhr) => {
-                if (xhr.status === 409) {
-                    alert("이미 가입된 이메일입니다. 다른 이메일을 사용해주세요.");
-                } else {
-                    alert("이메일 전송을 실패했습니다.");
-                }
-                sendLoading.css("display", "none");
-            });
-    } else {
-        alert("학교 이메일을 입력해주세요.");
-    }
-})
-
 submitBtn.click(function (e) {
     e.preventDefault();
     if (!studentNumState) {
         alert("학번을 입력해주세요.");
     } else if (!emailState) {
         alert("학교 이메일을 입력해주세요.");
-    } else if (!codeState) {
-        alert("인증번호를 입력해주세요.");
     } else if (!agreeState) {
         alert("약관에 동의해주세요.");
     } else {
         const studentId = studentNumInput.val();
         const email = emailInput.val();
-        const code = codeInput.val();
 
-        verifyCode(email, code, studentId);
+        authRegister(email, studentId);
     }
 });
 cancelBtn.click(function (e) {
